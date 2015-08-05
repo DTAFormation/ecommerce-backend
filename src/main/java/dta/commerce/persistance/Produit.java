@@ -2,7 +2,7 @@ package dta.commerce.persistance;
 
 public class Produit {
 
-	/**
+	/** 
 	 * Attributs
 	 */
 	private Integer id;

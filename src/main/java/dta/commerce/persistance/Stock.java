@@ -7,7 +7,8 @@ import java.util.Map;
 
 
 public class Stock {
-	/**
+	
+	/** 
 	 * Attributs
 	 */
 	private Integer id;

@@ -5,7 +5,7 @@ import java.util.List;
 
 public class User extends Personne {
 	
-	/**
+	/** 
 	 * Attributs
 	 */
 	private List<Adresse> listAdresse = new ArrayList<Adresse>();

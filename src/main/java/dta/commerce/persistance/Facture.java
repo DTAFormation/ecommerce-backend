@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Facture {
 
-	/**
+	/** 
 	 * Attributs
 	 */
 	private Integer id;
