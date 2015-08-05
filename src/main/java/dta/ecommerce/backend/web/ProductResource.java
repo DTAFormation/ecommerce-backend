@@ -8,6 +8,6 @@ public class ProductResource {
 
     @GET
     public String listProducts() {
-        return "hello products";
+        return "Bienvenue sur le site d'ecommerce !";
     }
 }
