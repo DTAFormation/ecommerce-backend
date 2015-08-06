@@ -1,13 +1,22 @@
 package dta.commerce.persistance;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("A")
 public class Admin extends Personne {
 	
 	/** 
 	 * Constructeurs
 	 */ 
-	public Admin(Integer id, String nom, String prenom, String login,
+	public Admin(String nom, String prenom, String login,
 			String password) {
-		super(id, nom, prenom, login, password);
+		super();
+		this.setNom(nom);
+		this.setPrenom(prenom);
+		this.setLogin(login);
+		this.setPassword(password);
 	}
 	public Admin(){
 		
