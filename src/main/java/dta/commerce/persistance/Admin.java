@@ -1,7 +1,5 @@
 package dta.commerce.persistance;
 
-import java.util.List;
-
 public class Admin extends Personne {
 	
 	/** 

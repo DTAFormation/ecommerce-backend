@@ -8,6 +8,7 @@ public class Produit {
 	private Integer id;
 	private String libelle;
 	private String caracteritique;
+	private String categorie;
 	private String image;
 	private Float prix;
 
@@ -15,12 +16,13 @@ public class Produit {
 	/**
 	 * Constructeurs
 	 */
-	public Produit(Integer id, String libelle, String caracteritique,
+	public Produit(Integer id, String libelle, String caracteritique, String categorie,
 			String image, Float prix) {
 		super();
 		this.id = id;
 		this.libelle = libelle;
 		this.caracteritique = caracteritique;
+		this.categorie = categorie;
 		this.image = image;
 		this.prix = prix;
 	}
@@ -48,6 +50,12 @@ public class Produit {
 	}
 	public void setCaracteritique(String caracteritique) {
 		this.caracteritique = caracteritique;
+	}
+	public String getCategorie() {
+		return categorie;
+	}
+	public void setCategorie(String categorie) {
+		this.categorie = categorie;
 	}
 	public String getImage() {
 		return image;
