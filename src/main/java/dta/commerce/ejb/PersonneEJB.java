@@ -8,13 +8,19 @@ import javax.ejb.Stateless;
 import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import dta.commerce.persistance.Adresse;
+
 import dta.commerce.persistance.Commande;
 import dta.commerce.persistance.Facture;
 import dta.commerce.persistance.Produit;
 import dta.commerce.persistance.Stock;
+
+import dta.commerce.persistance.Personne;
+
 import dta.commerce.persistance.User;
 
 @Stateless
@@ -46,14 +52,26 @@ public class PersonneEJB {
 		myListAdresse.add(adr2);
 		myUser.setAdresses(myListAdresse);
 		em.persist(myUser);
+
 		
 		Facture myFacture = new Facture(new Date(11/11/1991), "Par CB", adr1, adr2, myCommande);
 		em.persist(myFacture);
 		
-		//Stock leStock = new Stock(myProd, 4);
-		//em.persist(leStock);
-		
 		return myUser;
 			
+	
 	}
+	
+	public User getInfosUser(String pLogin, String pMdp){
+		
+		String textQuery="Select p from Personne as p where p.login = :login and p.password = :mdp";
+		TypedQuery<Personne> query=em.createQuery(textQuery, Personne.class);
+		query.setParameter("login",pLogin);
+		query.setParameter("mdp",pMdp);
+		User user=(User)query.getSingleResult();
+		
+		return user;
+
+	}
+	
 }
