@@ -16,7 +16,7 @@ public class Stock {
 	 * Attributs
 	 */
 	//@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	private Integer id; 
 	//@ManyToOne(cascade = CascadeType.ALL)
 	private Produit prod;
 	private Integer qte;
