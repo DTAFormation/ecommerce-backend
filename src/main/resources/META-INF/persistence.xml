@@ -5,7 +5,7 @@
 	version="1.0">
 	
 	<persistence-unit name="my_pu" transaction-type="JTA">
-	  <jta-data-source>java:/jdbc/datasource/ecommerceDS2</jta-data-source>
+	  <jta-data-source>java:/jdbc/datasource/ecommerceds</jta-data-source>
 		<properties> 
 			<!--  <property name="javax.persistence.schema-generation.database.action" value="drop-and-create" />-->
 			
