@@ -7,9 +7,12 @@ import javax.ejb.Stateless;
 import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import dta.commerce.persistance.Adresse;
+import dta.commerce.persistance.Personne;
 import dta.commerce.persistance.User;
 
 @Stateless
@@ -32,7 +35,18 @@ public class PersonneEJB {
 		User myUser = new User("GUILLOTEAU", "Nathan", "login", "login", myListAdresse);
 		
 		em.persist(myUser);
-		return myUser;
-			
+		return myUser;		
 	}
+	
+	public User getInfosUser(String pLogin, String pMdp){
+		
+		String textQuery="Select p from Personne as p where p.login = :login and p.password = :mdp";
+		TypedQuery<Personne> query=em.createQuery(textQuery, Personne.class);
+		query.setParameter("login",pLogin);
+		query.setParameter("mdp",pMdp);
+		User user=(User)query.getSingleResult();
+		
+		return user;
+	}
+	
 }
