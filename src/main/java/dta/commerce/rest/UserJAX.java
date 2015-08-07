@@ -39,7 +39,7 @@ public class UserJAX {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response connectUser(User data){
-		System.out.println(data.getLogin());
+		System.out.println("LOGIN:"+data.getLogin());
 		User user=myEJB.getInfosUser(data.getLogin(), data.getPassword());
 		user.setPassword("");
 		user.setId(null);
