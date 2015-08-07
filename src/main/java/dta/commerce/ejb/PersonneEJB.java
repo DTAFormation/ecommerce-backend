@@ -37,11 +37,16 @@ public class PersonneEJB {
 		
 		// Cette fonction me sert de test mon JPA 
 		User myUser = new User("GUILLOTEAU", "Nathan", "login", "login");
+		Commande myCommande = new Commande(myUser, "en cours");
 		
 		Produit myProd = new Produit("Velo", "Il roule", "Vehicule", "url/image", new Float(4));
 		em.persist(myProd);
 		
-		Commande myCommande = new Commande(myUser, "en cours");
+		List<Produit> myProduits = new ArrayList<Produit>();
+		myProduits.add(myProd);
+		myCommande.setproduits(myProduits);
+		
+		
 		em.persist(myCommande);
 		
 		
@@ -56,6 +61,9 @@ public class PersonneEJB {
 		
 		Facture myFacture = new Facture(new Date(11/11/1991), "Par CB", adr1, adr2, myCommande);
 		em.persist(myFacture);
+		
+		Stock leStock = new Stock(myProd, 4);
+		em.persist(leStock);
 		
 		return myUser;
 			

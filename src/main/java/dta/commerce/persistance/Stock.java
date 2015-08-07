@@ -8,16 +8,16 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-//@Entity
-//@Table(name="stock") 
+@Entity
+@Table(name="stock") 
 public class Stock {
 	
 	/** 
 	 * Attributs
 	 */
-	//@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id; 
-	//@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	private Produit prod;
 	private Integer qte;
 	
