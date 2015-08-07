@@ -2,16 +2,30 @@ package dta.commerce.persistance;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="facture") 
 public class Facture {
 
 	/** 
 	 * Attributs
 	 */
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private Date date;
-	private String modePaiement;
-	private Adresse adresseLivraison;
-	private Adresse adresseFacturation;
+	private String modepaiement;
+	@ManyToOne
+	private Adresse adresselivraison;
+	@ManyToOne
+	private Adresse adressefacturation;
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Commande commande;
 
 	
@@ -19,15 +33,14 @@ public class Facture {
 	/**
 	 * Constructeurs
 	 */
-	public Facture(Integer id, Date date, String modePaiement,
+	public Facture(Date date, String modepaiement,
 			Adresse adresseLivraison, Adresse adresseFacturation,
 			Commande commande) {
 		super();
-		this.id = id;
 		this.date = date;
-		this.modePaiement = modePaiement;
-		this.adresseLivraison = adresseLivraison;
-		this.adresseFacturation = adresseFacturation;
+		this.modepaiement = modepaiement;
+		this.adresselivraison = adresseLivraison;
+		this.adressefacturation = adresseFacturation;
 		this.commande = commande;
 	}
 	public Facture(){
@@ -51,22 +64,22 @@ public class Facture {
 		this.date = date;
 	}
 	public String getModePaiement() {
-		return modePaiement;
+		return modepaiement;
 	}
 	public void setModePaiement(String modePaiement) {
-		this.modePaiement = modePaiement;
+		this.modepaiement = modePaiement;
 	}
 	public Adresse getAdresseLivraison() {
-		return adresseLivraison;
+		return adresselivraison;
 	}
 	public void setAdresseLivraison(Adresse adresseLivraison) {
-		this.adresseLivraison = adresseLivraison;
+		this.adresselivraison = adresseLivraison;
 	}
 	public Adresse getAdresseFacturation() {
-		return adresseFacturation;
+		return adressefacturation;
 	}
 	public void setAdresseFacturation(Adresse adresseFacturation) {
-		this.adresseFacturation = adresseFacturation;
+		this.adressefacturation = adresseFacturation;
 	}
 	public Commande getCommande() {
 		return commande;
