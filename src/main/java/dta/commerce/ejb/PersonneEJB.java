@@ -64,11 +64,11 @@ public class PersonneEJB {
 	
 	public User getInfosUser(String pLogin, String pMdp){
 		
-		String textQuery="Select p from Personne as p where p.login = :login and p.password = :mdp";
-		TypedQuery<Personne> query=em.createQuery(textQuery, Personne.class);
+		String textQuery="Select u from User as u where u.login = :login and u.password = :mdp";
+		TypedQuery<User> query=em.createQuery(textQuery, User.class);
 		query.setParameter("login",pLogin);
 		query.setParameter("mdp",pMdp);
-		User user=(User)query.getSingleResult();
+		User user=query.getSingleResult();
 		
 		return user;
 
