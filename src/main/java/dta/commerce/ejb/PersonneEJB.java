@@ -1,6 +1,7 @@
 package dta.commerce.ejb;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -10,6 +11,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import dta.commerce.persistance.Adresse;
+import dta.commerce.persistance.Commande;
+import dta.commerce.persistance.Facture;
+import dta.commerce.persistance.Produit;
+import dta.commerce.persistance.Stock;
 import dta.commerce.persistance.User;
 
 @Stateless
@@ -24,14 +29,30 @@ public class PersonneEJB {
 	
 	public User createUser(){
 		
+		// Cette fonction me sert de test mon JPA 
+		User myUser = new User("GUILLOTEAU", "Nathan", "login", "login");
+		
+		Produit myProd = new Produit("Velo", "Il roule", "Vehicule", "url/image", new Float(4));
+		em.persist(myProd);
+		
+		Commande myCommande = new Commande(myUser, "en cours");
+		em.persist(myCommande);
+		
+		
 		Adresse adr1 = new Adresse(6, "rue athenas", "Nantes");
 		Adresse adr2 = new Adresse(1, "rue capitaine corhumel", "Nantes");
 		List<Adresse> myListAdresse = new ArrayList<Adresse>();
 		myListAdresse.add(adr1);
 		myListAdresse.add(adr2);
-		User myUser = new User("GUILLOTEAU", "Nathan", "login", "login", myListAdresse);
-		
+		myUser.setAdresses(myListAdresse);
 		em.persist(myUser);
+		
+		Facture myFacture = new Facture(new Date(11/11/1991), "Par CB", adr1, adr2, myCommande);
+		em.persist(myFacture);
+		
+		//Stock leStock = new Stock(myProd, 4);
+		//em.persist(leStock);
+		
 		return myUser;
 			
 	}

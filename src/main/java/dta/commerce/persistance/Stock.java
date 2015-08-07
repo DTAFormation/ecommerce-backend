@@ -1,56 +1,66 @@
 package dta.commerce.persistance;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-
+//@Entity
+//@Table(name="stock") 
 public class Stock {
 	
 	/** 
 	 * Attributs
 	 */
-	private Integer id;
-	private List<Produit> listProduit = new ArrayList<Produit>();
-	private Map<Produit, Integer> quantiteProduit = new HashMap<Produit, Integer>();
+	//@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Integer id; 
+	//@ManyToOne(cascade = CascadeType.ALL)
+	private Produit prod;
+	private Integer qte;
+	
 
 	
 
 	/**
 	 * Constructeurs
 	 */
-	public Stock(Integer id, List<Produit> listProduit,
-			Map<Produit, Integer> quantiteProduit) {
-		super();
-		this.id = id;
-		this.listProduit = listProduit;
-		this.quantiteProduit = quantiteProduit;
-	}
 	public Stock(){
 		
 	}
-	
-	
+	public Stock(Produit prod, Integer qte) {
+		super();
+		this.prod = prod;
+		this.qte = qte;
+	}
+
+
+
 	/**
 	 * Getters & setters
 	 */
+	public Produit getProd() {
+		return prod;
+	}
+
+	public void setProd(Produit prod) {
+		this.prod = prod;
+	}
+
+	public Integer getQte() {
+		return qte;
+	}
+
+	public void setQte(Integer qte) {
+		this.qte = qte;
+	}
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
-	}
-	public List<Produit> getListProduit() {
-		return listProduit;
-	}
-	public void setListProduit(List<Produit> listProduit) {
-		this.listProduit = listProduit;
-	}
-	public Map<Produit, Integer> getQuantiteProduit() {
-		return quantiteProduit;
-	}
-	public void setQuantiteProduit(Map<Produit, Integer> quantiteProduit) {
-		this.quantiteProduit = quantiteProduit;
 	}
 }

@@ -1,10 +1,19 @@
 package dta.commerce.persistance;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="produit") 
 public class Produit {
 
 	/** 
 	 * Attributs
 	 */
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String libelle;
 	private String caracteritique;
@@ -16,10 +25,9 @@ public class Produit {
 	/**
 	 * Constructeurs
 	 */
-	public Produit(Integer id, String libelle, String caracteritique, String categorie,
+	public Produit(String libelle, String caracteritique, String categorie,
 			String image, Float prix) {
 		super();
-		this.id = id;
 		this.libelle = libelle;
 		this.caracteritique = caracteritique;
 		this.categorie = categorie;

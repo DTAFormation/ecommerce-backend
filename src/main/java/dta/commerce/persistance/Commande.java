@@ -5,29 +5,40 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="commande") 
 public class Commande {
 	
 	/** 
 	 * Attributs
 	 */
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	private User client;
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Personne client;
 	private String etat;
-	private List<Produit> listProduit = new ArrayList<Produit>();
-	private Map<Produit, Integer> quantiteProduit = new HashMap<Produit, Integer>();
-
+	//@ManyToMany
+	//private List<Produit> listProduit = new ArrayList<Produit>();
+	
 	
 	/**
 	 * Constructeurs
 	 */
-	public Commande(Integer id, User client, String etat,
-			List<Produit> listProduit, Map<Produit, Integer> quantiteProduit) {
+	public Commande(User client, String etat/*,
+			List<Produit> listProduitMap<Produit, Integer> quantiteProduit*/) {
 		super();
-		this.id = id;
 		this.client = client;
 		this.etat = etat;
-		this.listProduit = listProduit;
-		this.quantiteProduit = quantiteProduit;
+		//this.listProduit = listProduit;
 	}
 	public Commande(){
 		
@@ -42,10 +53,10 @@ public class Commande {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public User getClient() {
+	public Personne getClient() {
 		return client;
 	}
-	public void setClient(User client) {
+	public void setClient(Personne client) {
 		this.client = client;
 	}
 	public String getEtat() {
@@ -54,17 +65,12 @@ public class Commande {
 	public void setEtat(String etat) {
 		this.etat = etat;
 	}
-	public List<Produit> getListProduit() {
-		return listProduit;
-	}
-	public void setListProduit(List<Produit> listProduit) {
-		this.listProduit = listProduit;
-	}
-	public Map<Produit, Integer> getQuantiteProduit() {
-		return quantiteProduit;
-	}
-	public void setQuantiteProduit(Map<Produit, Integer> quantiteProduit) {
-		this.quantiteProduit = quantiteProduit;
-	}
+//	public List<Produit> getListProduit() {
+//		return listProduit;
+//	}
+//	public void setListProduit(List<Produit> listProduit) {
+//		this.listProduit = listProduit;
+//	}
+
 
 }

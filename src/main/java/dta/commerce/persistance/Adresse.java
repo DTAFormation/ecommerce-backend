@@ -1,14 +1,18 @@
 package dta.commerce.persistance;
 
-import javax.persistence.Embeddable;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-//@Entity
-//@Table(name="adresse") 
+@Entity
+@Table(name="adresse")
 public class Adresse {
 
 	/** 
@@ -19,8 +23,10 @@ public class Adresse {
 	private Integer numero;
 	private String rue;
 	private String ville;
-	private User user;
+	@ManyToOne
+	private Personne client;
 	
+
 
 	/**
 	 * Constructeurs
@@ -67,11 +73,12 @@ public class Adresse {
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
-	public User getUser() {
-		return user;
+	public Personne getClient() {
+		return client;
 	}
-	public void setUser(User user) {
-		this.user = user;
+
+	public void setClient(Personne client) {
+		this.client = client;
 	}
 }
 

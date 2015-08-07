@@ -1,4 +1,4 @@
-package dta.commerce.JAX;
+package dta.commerce.rest;
 
 import java.util.List;
 
