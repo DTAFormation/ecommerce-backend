@@ -2,8 +2,6 @@ package dta.commerce.ejb;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import dta.commerce.persistance.Admin;
 
 public interface IAdminEJB {

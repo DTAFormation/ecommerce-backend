@@ -17,16 +17,22 @@ public class Facture {
 	/** 
 	 * Attributs
 	 */
+	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
+	
 	private Date date;
+	
 	private String modepaiement;
+	
 	@ManyToOne
 	private Adresse adresselivraison;
+	
 	@ManyToOne
 	private Adresse adressefacturation;
+	
 	@ManyToOne(cascade = CascadeType.ALL)
-	private Commande commande;
+	private CommandeClient commandeClient;
 
 	
 	
@@ -35,13 +41,13 @@ public class Facture {
 	 */
 	public Facture(Date date, String modepaiement,
 			Adresse adresseLivraison, Adresse adresseFacturation,
-			Commande commande) {
+			CommandeClient commandeClient) {
 		super();
 		this.date = date;
 		this.modepaiement = modepaiement;
 		this.adresselivraison = adresseLivraison;
 		this.adressefacturation = adresseFacturation;
-		this.commande = commande;
+		this.commandeClient = commandeClient;
 	}
 	public Facture(){
 		
@@ -81,11 +87,11 @@ public class Facture {
 	public void setAdresseFacturation(Adresse adresseFacturation) {
 		this.adressefacturation = adresseFacturation;
 	}
-	public Commande getCommande() {
-		return commande;
+	public CommandeClient getCommande() {
+		return commandeClient;
 	}
-	public void setCommande(Commande commande) {
-		this.commande = commande;
+	public void setCommande(CommandeClient commandeClient) {
+		this.commandeClient = commandeClient;
 	}
 
 }

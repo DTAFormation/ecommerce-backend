@@ -8,18 +8,15 @@ import javax.ejb.Stateless;
 import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
 import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import dta.commerce.persistance.Adresse;
 
-import dta.commerce.persistance.Commande;
+import dta.commerce.persistance.CommandeClient;
 import dta.commerce.persistance.Facture;
 import dta.commerce.persistance.Produit;
 import dta.commerce.persistance.Stock;
-
-import dta.commerce.persistance.Personne;
 
 import dta.commerce.persistance.User;
 
@@ -37,14 +34,14 @@ public class PersonneEJB {
 		
 		// Cette fonction me sert de test mon JPA 
 		User myUser = new User("GUILLOTEAU", "Nathan", "login", "login");
-		Commande myCommande = new Commande(myUser, "en cours");
+		CommandeClient myCommande = new CommandeClient(myUser, "en cours");
 		
 		Produit myProd = new Produit("Velo", "Il roule", "Vehicule", "url/image", new Float(4));
 		em.persist(myProd);
 		
 		List<Produit> myProduits = new ArrayList<Produit>();
 		myProduits.add(myProd);
-		myCommande.setproduits(myProduits);
+		//myCommande.setCommandeProduits(myProduits);
 		
 		
 		em.persist(myCommande);
