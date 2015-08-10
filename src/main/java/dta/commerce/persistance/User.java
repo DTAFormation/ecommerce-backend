@@ -23,7 +23,6 @@ public class User extends Personne {
 	@OneToMany(mappedBy="client", cascade = CascadeType.ALL)
 	@MapKey(name="id")
 	private List<Adresse> adresses = new ArrayList<Adresse>();
-
 	
 	/**
 	 * Constructeurs
