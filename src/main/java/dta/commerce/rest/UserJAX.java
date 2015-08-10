@@ -22,6 +22,7 @@ import dta.commerce.persistance.User;
 public class UserJAX {
 	@EJB PersonneEJB myEJB;
 	
+
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response get(){
@@ -29,7 +30,6 @@ public class UserJAX {
 		User myUser = myEJB.createUser();	
 		ResponseBuilder builder = Response.ok(myUser);
 		builder.status(200);
-		//builder.header("Access-Control-Allow-Origin", "*");
 		
 		return builder.build(); 
 	}

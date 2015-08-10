@@ -2,14 +2,21 @@ package dta.commerce.persistance;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.NamedQuery;
 
 @Entity
+@NamedQuery(
+		name="Admin.findAll",
+		query="select a from Admin as a")
 @DiscriminatorValue("A")
 public class Admin extends Personne {
 	
 	/** 
 	 * Constructeurs
 	 */ 
+	public Admin(){
+		
+	}
 	public Admin(String nom, String prenom, String login,
 			String password) {
 		super();
@@ -18,7 +25,5 @@ public class Admin extends Personne {
 		this.setLogin(login);
 		this.setPassword(password);
 	}
-	public Admin(){
-		
-	}
+
 }
