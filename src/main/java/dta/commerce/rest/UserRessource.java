@@ -3,8 +3,6 @@ package dta.commerce.rest;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.Resource;
-import javax.ws.rs.BeanParam;
 import javax.ejb.EJB;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -18,23 +16,28 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.ResponseBuilder;
 
-import dta.commerce.ejb.AdminEJB;
-import dta.commerce.ejb.IAdminEJB;
+
+
+
+
+
+
+import dta.commerce.ejb.PersonneEJB;
+import dta.commerce.ejb.UserEJB;
 import dta.commerce.persistance.Admin;
 import dta.commerce.persistance.User;
 
-@Path("/admin")
-public class AdminJAX {
-	@EJB AdminEJB adminEjb;
-
+@Path("/user")
+public class UserRessource {
+	@EJB UserEJB myEJB;
 	
-	// ****** AJOUTER ADMIN ******
+	// ****** AJOUTER USER ******
 	@PUT
 	@Path("/add")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response addAdmin(Admin admin) {
+	public Response addUser(User user) {
 		try {
-			adminEjb.addAdmin(admin);
+			myEJB.addUser(user);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -43,13 +46,13 @@ public class AdminJAX {
 		return builder.build(); 
 	}
 	
-	// ****** MODIFIER ADMIN ******
+	// ****** MODIFIER USER ******
 	@PUT
 	@Path("/update")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response updateAdmin(Admin admin) {
+	public Response updateUser(User user) {
 		try {
-			adminEjb.updateAdmin(admin);
+			myEJB.updateUser(user);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -58,12 +61,12 @@ public class AdminJAX {
 		return builder.build(); 
 	}
 	
-	// ****** SUPPRIMER ADMIN ******
+	// ****** SUPPRIMER USER ******
 		@DELETE
 		@Path("/delete/{id}")
-		public Response deleteAdmin(@PathParam(value = "id") Integer admin) {
+		public Response deleteUser(@PathParam(value = "id") Integer user) {
 			try {
-				adminEjb.deleteAdmin(admin);
+				myEJB.deleteUser(user);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -72,36 +75,52 @@ public class AdminJAX {
 			return builder.build(); 
 		}
 		
-		// ****** ADD ADMIN ******
+		// ****** ADD USER ******
 		@GET
 		@Path("/get/{id}")
 		@Produces(MediaType.APPLICATION_JSON)
-		public Response getAdmin(@PathParam(value = "id") Integer admin) {
-			Admin myAdmin = new Admin();
+		public Response getUser(@PathParam(value = "id") Integer user) {
+			User myUser = new User();
 			try {
-				myAdmin = adminEjb.getAdmin(admin);
+				myUser = myEJB.getUser(user);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			ResponseBuilder builder = Response.ok(myAdmin);
+			ResponseBuilder builder = Response.ok(myUser);
 			builder.status(200);
 			return builder.build(); 
 		}
 		
-		// ****** LISTER ADMIN ******
+		// ****** LISTER USER ******
 			@GET
 			@Path("/get")
 			@Produces(MediaType.APPLICATION_JSON)
 			public Response getAdmin() {
-					List<Admin> myAdmins= new ArrayList<Admin>();
+					List<User> myUsers= new ArrayList<User>();
 					try {
-						myAdmins = adminEjb.listerAdmin();
+						myUsers = myEJB.listerUser();
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
-					ResponseBuilder builder = Response.ok(myAdmins);
+					ResponseBuilder builder = Response.ok(myUsers);
 					builder.status(200);
 					return builder.build(); 
 				}
-}
+			
+		// ****** CONNECTER USER ******
+			@POST
+			@Path("/connect")
+			@Produces(MediaType.APPLICATION_JSON)
+			@Consumes(MediaType.APPLICATION_JSON)
+			public Response connectUser(User data){
+				System.out.println(data.getLogin());
+				User user=myEJB.getInfosUser(data.getLogin(), data.getPassword());
+				user.setPassword("");
+				user.setId(null);
+				ResponseBuilder builder = Response.ok(user);
+				return builder.build(); 
+			}
+	
+		
 
+}
