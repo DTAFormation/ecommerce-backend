@@ -63,6 +63,10 @@ public class AdminEJB  {
 		adminDao.updateAdmin(admin);
 	}
 	
+
+	public Admin getAdmin(Integer admin){
+		return adminDao.getAdmin(admin);
+	}
 	
 	
 	

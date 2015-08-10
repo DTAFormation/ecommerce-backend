@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.4
+-- version 4.1.14
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 10 Août 2015 à 16:35
--- Version du serveur :  5.6.15-log
--- Version de PHP :  5.4.24
+-- Généré le :  Lun 10 Août 2015 à 13:47
+-- Version du serveur :  5.6.17
+-- Version de PHP :  5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données :  `ecommerceds`
+-- Base de données :  `ecommerce`
 --
 
 -- --------------------------------------------------------
@@ -25,77 +25,78 @@ SET time_zone = "+00:00";
 --
 -- Structure de la table `adresse`
 --
-
 DROP TABLE IF EXISTS `adresse`;
-DROP TABLE IF EXISTS `commande_client`;
-DROP TABLE IF EXISTS `commande_produits`;
+DROP TABLE IF EXISTS `commande`;
+DROP TABLE IF EXISTS `commande_produit`;
 DROP TABLE IF EXISTS `facture`;
-DROP TABLE IF EXISTS `produit`;
 DROP TABLE IF EXISTS `stock`;
+DROP TABLE IF EXISTS `produit`;
 DROP TABLE IF EXISTS `personne`;
+
 
 CREATE TABLE IF NOT EXISTS `adresse` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `numero` int(11) DEFAULT NULL,
-  `rue` varchar(255) DEFAULT NULL,
-  `ville` varchar(255) DEFAULT NULL,
-  `client` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FK_36b8tnc4349u8ao0ikrtqu8l6` (`client`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `numero` int(11) NOT NULL,
+  `rue` varchar(55) NOT NULL,
+  `ville` varchar(55) NOT NULL,
+  `client` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=93 ;
 
 --
 -- Contenu de la table `adresse`
 --
 
 INSERT INTO `adresse` (`id`, `numero`, `rue`, `ville`, `client`) VALUES
-(1, 21, 'sdfsdf', 'sdfsdf', 1);
+(87, 6, 'rue athenas', 'Nantes', 88),
+(88, 1, 'rue capitaine corhumel', 'Nantes', 88),
+(89, 6, 'rue athenas', 'Nantes', 89),
+(90, 1, 'rue capitaine corhumel', 'Nantes', 89),
+(91, 6, 'rue athenas', 'Nantes', 90),
+(92, 1, 'rue capitaine corhumel', 'Nantes', 90);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `commande_client`
+-- Structure de la table `commande`
 --
 
-CREATE TABLE IF NOT EXISTS `commande_client` (
+CREATE TABLE IF NOT EXISTS `commande` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `etat` varchar(255) DEFAULT NULL,
-  `client` int(11) DEFAULT NULL,
-  `facture` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FK_t4g3urlfvjrlqv7dyqtb6yexp` (`client`),
-  KEY `FK_i4bkwbbi77x1bxrf0pnxdjbmm` (`facture`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `client` int(11) NOT NULL,
+  `etat` varchar(55) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=39 ;
 
 --
--- Contenu de la table `commande_client`
+-- Contenu de la table `commande`
 --
 
-INSERT INTO `commande_client` (`id`, `etat`, `client`, `facture`) VALUES
-(1, 'en cours', 1, NULL);
+INSERT INTO `commande` (`id`, `client`, `etat`) VALUES
+(36, 88, 'en cours'),
+(37, 89, 'en cours'),
+(38, 90, 'en cours');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `commande_produits`
+-- Structure de la table `commande_produit`
 --
 
-CREATE TABLE IF NOT EXISTS `commande_produits` (
-  `id` int(11) NOT NULL,
-  `quantite` int(11) DEFAULT NULL,
-  `produit` int(11) DEFAULT NULL,
-  `commande_client` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FK_rep7jckdgga7pmsfqrqlarouo` (`produit`),
-  KEY `FK_htwgujvxcc9artiwme1s3fw0c` (`commande_client`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `commande_produit` (
+  `commande` int(11) NOT NULL,
+  `produit` int(11) NOT NULL,
+  PRIMARY KEY (`commande`,`produit`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `commande_produits`
+-- Contenu de la table `commande_produit`
 --
 
-INSERT INTO `commande_produits` (`id`, `quantite`, `produit`, `commande_client`) VALUES
-(0, 1, 1, 1);
+INSERT INTO `commande_produit` (`commande`, `produit`) VALUES
+(36, 39),
+(37, 40),
+(38, 41);
 
 -- --------------------------------------------------------
 
@@ -105,33 +106,22 @@ INSERT INTO `commande_produits` (`id`, `quantite`, `produit`, `commande_client`)
 
 CREATE TABLE IF NOT EXISTS `facture` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `date` datetime DEFAULT NULL,
-  `modepaiement` varchar(255) DEFAULT NULL,
-  `adressefacturation` int(11) DEFAULT NULL,
-  `adresselivraison` int(11) DEFAULT NULL,
-  `commande_client` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FK_ilt50sov3o16ehpn4ckgt08do` (`adressefacturation`),
-  KEY `FK_bt86xk42muci5i072vesiyxjh` (`adresselivraison`),
-  KEY `FK_fd9xc33bdvb29v6kssset4cup` (`commande_client`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
+  `date` date NOT NULL,
+  `modepaiement` varchar(55) NOT NULL,
+  `adresselivraison` int(11) NOT NULL,
+  `adressefacturation` int(11) NOT NULL,
+  `commande` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
 
 --
--- Structure de la table `hibernate_sequence`
+-- Contenu de la table `facture`
 --
 
-CREATE TABLE IF NOT EXISTS `hibernate_sequence` (
-  `next_val` bigint(20) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Contenu de la table `hibernate_sequence`
---
-
-INSERT INTO `hibernate_sequence` (`next_val`) VALUES
-(1);
+INSERT INTO `facture` (`id`, `date`, `modepaiement`, `adresselivraison`, `adressefacturation`, `commande`) VALUES
+(22, '1970-01-01', 'Par CB', 87, 88, 36),
+(23, '1970-01-01', 'Par CB', 89, 90, 37),
+(24, '1970-01-01', 'Par CB', 91, 92, 38);
 
 -- --------------------------------------------------------
 
@@ -140,21 +130,29 @@ INSERT INTO `hibernate_sequence` (`next_val`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `personne` (
-  `type_personne` varchar(31) NOT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `login` varchar(255) DEFAULT NULL,
-  `nom` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `prenom` varchar(255) DEFAULT NULL,
+  `nom` varchar(55) NOT NULL,
+  `prenom` varchar(55) NOT NULL,
+  `login` varchar(55) NOT NULL,
+  `password` varchar(55) NOT NULL,
+  `TYPE_PERSONNE` varchar(31) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=101 ;
 
 --
 -- Contenu de la table `personne`
 --
 
-INSERT INTO `personne` (`type_personne`, `id`, `login`, `nom`, `password`, `prenom`) VALUES
-('U', 1, 'aze@aze', 'aze', 'azeaze', 'aze');
+INSERT INTO `personne` (`id`, `nom`, `prenom`, `login`, `password`, `TYPE_PERSONNE`) VALUES
+(87, 'modif', 'test', 'truc', 'machin', 'U'),
+(88, 'GUILLOTEAU', 'Nathan', 'login', 'login', 'U'),
+(89, 'GUILLOTEAU', 'Nathan', 'login', 'login', 'U'),
+(90, 'GUILLOTEAU', 'Nathan', 'login', 'login', 'U'),
+(93, 'Admin test', 'Test', 'loginAdmin', 'PwdAdmin', 'A'),
+(94, 'Admin test', 'Test', 'loginAdmin', 'PwdAdmin', 'A'),
+(95, 'Admin test', 'Test', 'loginAdmin', 'PwdAdmin', 'A'),
+(96, 'Admin test', 'Test', 'loginAdmin', 'PwdAdmin', 'A'),
+(97, 'Sans sss test modif', 'Test', 'loginAdmin', 'PwdAdmin', 'A');
 
 -- --------------------------------------------------------
 
@@ -164,20 +162,22 @@ INSERT INTO `personne` (`type_personne`, `id`, `login`, `nom`, `password`, `pren
 
 CREATE TABLE IF NOT EXISTS `produit` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `caracteritique` varchar(255) DEFAULT NULL,
-  `categorie` varchar(255) DEFAULT NULL,
-  `image` varchar(255) DEFAULT NULL,
-  `libelle` varchar(255) DEFAULT NULL,
-  `prix` float DEFAULT NULL,
+  `libelle` varchar(55) NOT NULL,
+  `caracteritique` text NOT NULL,
+  `categorie` varchar(55) NOT NULL,
+  `image` varchar(55) NOT NULL,
+  `prix` float NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=42 ;
 
 --
 -- Contenu de la table `produit`
 --
 
-INSERT INTO `produit` (`id`, `caracteritique`, `categorie`, `image`, `libelle`, `prix`) VALUES
-(1, 'beau vélo', 'vélo', NULL, 'vélo bleu', 125);
+INSERT INTO `produit` (`id`, `libelle`, `caracteritique`, `categorie`, `image`, `prix`) VALUES
+(39, 'Velo', 'Il roule', 'Vehicule', 'url/image', 4),
+(40, 'Velo', 'Il roule', 'Vehicule', 'url/image', 4),
+(41, 'Velo', 'Il roule', 'Vehicule', 'url/image', 4);
 
 -- --------------------------------------------------------
 
@@ -187,11 +187,19 @@ INSERT INTO `produit` (`id`, `caracteritique`, `categorie`, `image`, `libelle`, 
 
 CREATE TABLE IF NOT EXISTS `stock` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `qte` int(11) DEFAULT NULL,
-  `prod` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FK_3wmkcdc4uc27yycyxy49ouuqf` (`prod`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `prod` int(11) NOT NULL,
+  `qte` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+
+--
+-- Contenu de la table `stock`
+--
+
+INSERT INTO `stock` (`id`, `prod`, `qte`) VALUES
+(13, 39, 4),
+(14, 40, 4),
+(15, 41, 4);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

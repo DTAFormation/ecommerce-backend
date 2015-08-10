@@ -2,8 +2,6 @@ package dta.commerce.ejb;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import dta.commerce.persistance.Admin;
 
 public interface IAdminEJB {
@@ -12,6 +10,11 @@ public interface IAdminEJB {
 	 * @see dta.commerce.ejb.IAdminEJB#listerAdmin()
 	 */
 	public abstract List<Admin> listerAdmin();
+	
+	/* (non-Javadoc)
+	 * @see dta.commerce.ejb.IAdminEJB#getAdmin()
+	 */
+	public abstract Admin getAdmin(Integer admin);
 
 	/* (non-Javadoc)
 	 * @see dta.commerce.ejb.IAdminEJB#addAdmin(dta.commerce.persistance.Admin)
