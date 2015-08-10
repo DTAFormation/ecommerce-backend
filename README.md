@@ -22,7 +22,7 @@ Pour lancer le projet sur votre machine, suivez les étapes suivantes :
 ## Etape 3 : Ajouter la datasource</h2>
 
 * Aller dans le dossier de wildfly (ça doit ressembler à "C:/wildfly")
-* Aller dans le dossier "standalone"
+* Aller dans le dossier "standalone" puis "configuration"
 * Ouvrir le fichier "standalone.xml" dans votre éditeur de texte préféré
 * Ajouter la datasource suivante dans la liste des datasources :
 
@@ -69,7 +69,7 @@ Pour lancer le projet sur votre machine, suivez les étapes suivantes :
 * Créer une base de données "ecommerce"
 * Aller dans l'onglet "Importer"
 * Cliquer sur "Choisir un fichier ..."
-* Sélectionner le fichier sql qui se trouve dans le projet
+* Sélectionner le fichier sql qui se trouve dans le projet (sur slack pour l'instant)
 
 ## Etape 6 : Redémarrer une dernière fois le serveur wildfly
 
