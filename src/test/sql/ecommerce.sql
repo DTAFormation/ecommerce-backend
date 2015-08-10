@@ -25,13 +25,13 @@ SET time_zone = "+00:00";
 --
 -- Structure de la table `adresse`
 --
-DROP TABLE `adresse`;
-DROP TABLE `commande`;
-DROP TABLE `commande_produit`;
-DROP TABLE `facture`;
-DROP TABLE `stock`;
-DROP TABLE `produit`;
-DROP TABLE `personne`;
+DROP TABLE IF EXISTS `adresse`;
+DROP TABLE IF EXISTS `commande`;
+DROP TABLE IF EXISTS `commande_produit`;
+DROP TABLE IF EXISTS `facture`;
+DROP TABLE IF EXISTS `stock`;
+DROP TABLE IF EXISTS `produit`;
+DROP TABLE IF EXISTS `personne`;
 
 
 CREATE TABLE IF NOT EXISTS `adresse` (
