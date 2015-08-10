@@ -16,12 +16,13 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.ResponseBuilder;
 
 import dta.commerce.ejb.ICommandeEJB;
+import dta.commerce.ejb.IUserEJB;
 import dta.commerce.persistance.CommandeClient;
 
 @Path("/client")
-public class CommandeJAX {
+public class CommandeRessource {
 @EJB ICommandeEJB commmandeEjb;
-
+@EJB IUserEJB	userEJB;
 	
 	@GET
 	@Path("/commandes")
@@ -68,6 +69,7 @@ public class CommandeJAX {
 				
 		try {
 			System.out.println("création de la commande");
+			commandeClient.setClient(userEJB.getUser(idClient));
 			commmandeEjb.updateCommandeClient(commandeClient);
 		} catch (Exception e) {
 			e.printStackTrace();

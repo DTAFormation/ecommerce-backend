@@ -18,16 +18,14 @@ public class CommandeEJB implements ICommandeEJB{
 	
 	@Inject private ICommandeDAO commandeDao;
 	
-	
 	public  void createCommandeClient(CommandeClient commandeClient) {
 		commandeDao.createCommandeClient(commandeClient);
-		//commandeClient.getClient().addCommandClient(newCdeClient); A ajouter lorsque le code de PersonneEJB sera mis à jour
-		
+		commandeClient.getClient().addCommandClient(commandeClient); 
 	}
 
 	public void deleteCommandeClient(Integer idCommandeClient) {
-		//commandeClient.getClient().removeCommandClient(commandeClient); à ajouter lorsque l'EJB personne aura été mis à jour
 		CommandeClient deletableCdeCli = editCommandClient(idCommandeClient);
+		deletableCdeCli.getClient().removeCommandClient(deletableCdeCli);
 		commandeDao.deleteCommandeClient(deletableCdeCli);
 	}
 
