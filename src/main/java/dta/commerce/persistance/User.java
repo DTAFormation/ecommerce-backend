@@ -8,8 +8,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.MapKey;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -24,9 +22,12 @@ public class User extends Personne {
 	/** 
 	 * Attributs
 	 */
-	@OneToMany(mappedBy="client", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy="client", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
 	@MapKey(name="id")
 	private List<Adresse> adresses = new ArrayList<Adresse>();
+	
+	@OneToMany(mappedBy = "client", fetch=FetchType.EAGER)
+	private List<CommandeClient> listCommandes = new ArrayList<CommandeClient>();
 	
 	/**
 	 * Constructeurs
@@ -69,6 +70,14 @@ public class User extends Personne {
 		return super.getId();
 	}
 	
-		
+	public List<CommandeClient> addCommandClient (CommandeClient commandeClient){
+		this.listCommandes.add(commandeClient);
+		return listCommandes;
+	}
+	
+	public List<CommandeClient> removeCommandClient (CommandeClient commandeClient){
+		this.listCommandes.remove(commandeClient);
+		return listCommandes;
+	}
 	
 }

@@ -2,8 +2,6 @@ package dta.commerce.dao;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import dta.commerce.persistance.Admin;
 
 public interface IAdminDAO {

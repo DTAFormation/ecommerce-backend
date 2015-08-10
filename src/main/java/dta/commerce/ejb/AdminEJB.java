@@ -2,13 +2,10 @@ package dta.commerce.ejb;
 
 import java.util.List;
 
-import javax.annotation.Resource;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
 import javax.inject.Inject;
-import javax.transaction.Transactional;
-
 import dta.commerce.dao.IAdminDAO;
 import dta.commerce.persistance.Admin;
 

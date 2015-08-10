@@ -24,7 +24,6 @@ public class Produit {
 	private String categorie;
 	private String image;
 	private Float prix;
-
 	
 	/**
 	 * Constructeurs
