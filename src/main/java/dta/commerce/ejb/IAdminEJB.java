@@ -12,6 +12,11 @@ public interface IAdminEJB {
 	 * @see dta.commerce.ejb.IAdminEJB#listerAdmin()
 	 */
 	public abstract List<Admin> listerAdmin();
+	
+	/* (non-Javadoc)
+	 * @see dta.commerce.ejb.IAdminEJB#getAdmin()
+	 */
+	public abstract Admin getAdmin(Integer admin);
 
 	/* (non-Javadoc)
 	 * @see dta.commerce.ejb.IAdminEJB#addAdmin(dta.commerce.persistance.Admin)
