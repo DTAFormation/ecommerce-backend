@@ -1,4 +1,4 @@
-package dta.commerde.rest;
+package dta.commerce.rest;
 
 public class UserJAXTest {
 

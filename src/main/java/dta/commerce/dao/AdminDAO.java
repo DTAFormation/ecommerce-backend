@@ -51,6 +51,13 @@ public class AdminDAO implements IAdminDAO {
 	public List<Admin> listerAdmin() {
 		return em.createNamedQuery("Admin.findAll").getResultList();
 	}
+	
+	@Override
+	@Transactional
+	public Admin getAdmin(Integer admin) {
+		Admin myAdmin = (Admin) em.createQuery("Select a from Admin as a where a.id=" + admin + "").getSingleResult();
+		return myAdmin;
+	}
 
 	/**
 	 * Getter & setters

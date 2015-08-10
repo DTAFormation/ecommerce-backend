@@ -16,4 +16,6 @@ public interface IAdminDAO {
 
 	public abstract List<Admin> listerAdmin();
 
+	public abstract Admin getAdmin(Integer admin);
+
 }
