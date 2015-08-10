@@ -2,6 +2,7 @@ package dta.commerce.rest;
 
 import javax.ejb.EJB;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -44,5 +45,16 @@ public class ProduitJAX {
 			return Response.status(Response.Status.BAD_REQUEST).build();
 		}
 		return Response.status(Response.Status.CREATED).entity(produit).build();
+	}
+	
+	@DELETE
+	@Path("/{id}")
+	public Response deleteProduit(@PathParam("id") Integer idProduit) {
+		try {
+			produitEjb.deleteProduit(idProduit);
+		} catch (Exception e) {
+			return Response.status(Response.Status.BAD_REQUEST).build();
+		}
+		return Response.status(Response.Status.OK).build();
 	}
 }
