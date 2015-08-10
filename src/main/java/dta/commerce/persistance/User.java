@@ -11,9 +11,13 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.MapKey;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 @Entity
+@NamedQuery(
+		name="User.findAll",
+		query="select u from User as u")
 @DiscriminatorValue("U")
 public class User extends Personne {
 	
