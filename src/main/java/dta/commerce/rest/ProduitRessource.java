@@ -18,7 +18,7 @@ import dta.commerce.ejb.IProduitEJB;
 import dta.commerce.persistance.Produit;
 
 @Path("/produit")
-public class ProduitJAX {
+public class ProduitRessource {
 	
 	@EJB IProduitEJB produitEjb;
 	
