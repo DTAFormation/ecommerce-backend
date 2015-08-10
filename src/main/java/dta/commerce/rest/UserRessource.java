@@ -15,13 +15,14 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.ResponseBuilder;
-import dta.commerce.ejb.UserEJB;
+
+import dta.commerce.ejb.IUserEJB;
 import dta.commerce.persistance.Admin;
 import dta.commerce.persistance.User;
 
 @Path("/user")
 public class UserRessource {
-	@EJB UserEJB myEJB;
+	@EJB IUserEJB myEJB;
 	
 	// ****** AJOUTER USER ******
 	@PUT
