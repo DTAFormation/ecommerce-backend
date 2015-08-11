@@ -4,8 +4,11 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
+
 import dta.commerce.persistance.Admin;
+import dta.commerce.persistance.User;
 
 public class AdminDAO implements IAdminDAO {
 	
@@ -16,14 +19,7 @@ public class AdminDAO implements IAdminDAO {
 	 */
 	@Override
 	public void addAdmin(Admin admin){
-		try{
-			em.persist(admin);
-		}catch(Exception e) {
-			e.printStackTrace();
-			
-		}
-		
-		
+		em.persist(admin);	
 	}
 
 	/* (non-Javadoc)
@@ -54,8 +50,12 @@ public class AdminDAO implements IAdminDAO {
 	@Override
 	@Transactional
 	public Admin getAdmin(Integer admin) {
-		Admin myAdmin = (Admin) em.createQuery("Select a from Admin as a where a.id=" + admin + "").getSingleResult();
+		String textQuery="Select a from Admin as a where a.id=:id";
+		TypedQuery<Admin> query=em.createQuery(textQuery, Admin.class);
+		query.setParameter("id",admin);
+		Admin myAdmin=query.getSingleResult();
 		return myAdmin;
+		
 	}
 
 	/**

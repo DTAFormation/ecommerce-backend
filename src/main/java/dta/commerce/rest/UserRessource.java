@@ -25,15 +25,10 @@ public class UserRessource {
 	@EJB IUserEJB myEJB;
 	
 	// ****** AJOUTER USER ******
-	@PUT
-	@Path("/add")
+	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response addUser(User user) {
-		try {
-			myEJB.addUser(user);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		myEJB.addUser(user);
 		ResponseBuilder builder = Response.ok();
 		builder.status(201);
 		return builder.build(); 
@@ -41,14 +36,9 @@ public class UserRessource {
 	
 	// ****** MODIFIER USER ******
 	@PUT
-	@Path("/update")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response updateUser(User user) {
-		try {
-			myEJB.updateUser(user);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		myEJB.updateUser(user);
 		ResponseBuilder builder = Response.ok();
 		builder.status(200);
 		return builder.build(); 
@@ -56,13 +46,9 @@ public class UserRessource {
 	
 	// ****** SUPPRIMER USER ******
 		@DELETE
-		@Path("/delete/{id}")
+		@Path("/{id}")
 		public Response deleteUser(@PathParam(value = "id") Integer user) {
-			try {
-				myEJB.deleteUser(user);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			myEJB.deleteUser(user);
 			ResponseBuilder builder = Response.ok();
 			builder.status(200);
 			return builder.build(); 
@@ -70,49 +56,40 @@ public class UserRessource {
 		
 		// ****** ADD USER ******
 		@GET
-		@Path("/get/{id}")
+		@Path("/{id}")
 		@Produces(MediaType.APPLICATION_JSON)
 		public Response getUser(@PathParam(value = "id") Integer user) {
 			User myUser = new User();
-			try {
-				myUser = myEJB.getUser(user);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			myUser = myEJB.getUser(user);
 			ResponseBuilder builder = Response.ok(myUser);
 			builder.status(200);
 			return builder.build(); 
 		}
 		
 		// ****** LISTER USER ******
-			@GET
-			@Path("/get")
-			@Produces(MediaType.APPLICATION_JSON)
-			public Response getUser() {
-					List<User> myUsers= new ArrayList<User>();
-					try {
-						myUsers = myEJB.listerUser();
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-					ResponseBuilder builder = Response.ok(myUsers);
-					builder.status(200);
-					return builder.build(); 
-				}
-			
-		// ****** CONNECTER USER ******
-			@POST
-			@Path("/connect")
-			@Produces(MediaType.APPLICATION_JSON)
-			@Consumes(MediaType.APPLICATION_JSON)
-			public Response connectUser(User data){
-				System.out.println(data.getLogin());
-				User user=myEJB.getInfosUser(data.getLogin(), data.getPassword());
-				user.setPassword("");
-				user.setId(null);
-				ResponseBuilder builder = Response.ok(user);
+		@GET
+		@Produces(MediaType.APPLICATION_JSON)
+		public Response getUser() {
+				List<User> myUsers= new ArrayList<User>();
+				myUsers = myEJB.listerUser();
+				ResponseBuilder builder = Response.ok(myUsers);
+				builder.status(200);
 				return builder.build(); 
 			}
+			
+		// ****** CONNECTER USER ******
+		@POST
+		@Path("/connect")
+		@Produces(MediaType.APPLICATION_JSON)
+		@Consumes(MediaType.APPLICATION_JSON)
+		public Response connectUser(User data){
+			System.out.println(data.getLogin());
+			User user=myEJB.getInfosUser(data.getLogin(), data.getPassword());
+			user.setPassword("");
+			user.setId(null);
+			ResponseBuilder builder = Response.ok(user);
+			return builder.build(); 
+		}
 	
 		
 
