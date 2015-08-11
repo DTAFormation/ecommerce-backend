@@ -20,7 +20,7 @@ public class Produit {
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String libelle;
-	private String caracteritique;
+	private String caracteristique;
 	private String categorie;
 	private String image;
 	private Float prix;
@@ -28,11 +28,11 @@ public class Produit {
 	/**
 	 * Constructeurs
 	 */
-	public Produit(String libelle, String caracteritique, String categorie,
+	public Produit(String libelle, String caracteristique, String categorie,
 			String image, Float prix) {
 		super();
 		this.libelle = libelle;
-		this.caracteritique = caracteritique;
+		this.caracteristique = caracteristique;
 		this.categorie = categorie;
 		this.image = image;
 		this.prix = prix;
@@ -56,11 +56,11 @@ public class Produit {
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
 	}
-	public String getCaracteritique() {
-		return caracteritique;
+	public String getCaracteristique() {
+		return caracteristique;
 	}
-	public void setCaracteritique(String caracteritique) {
-		this.caracteritique = caracteritique;
+	public void setCaracteristique(String caracteristique) {
+		this.caracteristique = caracteristique;
 	}
 	public String getCategorie() {
 		return categorie;
