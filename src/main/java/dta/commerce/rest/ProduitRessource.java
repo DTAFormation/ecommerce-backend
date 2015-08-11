@@ -64,6 +64,7 @@ public class ProduitRessource {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/byIds")
 	public Response listerProduitsById( @QueryParam("ids") String idProduits){
 		List<Produit> myProduits = new ArrayList<Produit>();
 		for(String id : idProduits.split(",")) {
