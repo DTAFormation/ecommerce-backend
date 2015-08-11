@@ -30,12 +30,7 @@ public class CommandeRessource {
 	public Response getClientCommandes(@PathParam("idClient") Integer idClient) {
 		
 		List<CommandeClient> listCde;
-		try {
-			listCde = commmandeEjb.listerCommandeClient(idClient);
-		} catch (Exception e) {
-			e.printStackTrace();
-			listCde = null;
-		}
+		listCde = commmandeEjb.listerCommandeClient(idClient);
 		ResponseBuilder builder= Response.ok(listCde);
 		return builder.build(); 
 	}
@@ -47,14 +42,8 @@ public class CommandeRessource {
 		
 		ResponseBuilder builder= Response.ok("");
 		CommandeClient commandeCli;
-		try {
-			commandeCli = commmandeEjb.editCommandClient(idCommande);
-			builder.status(200);
-		} catch (Exception e) {
-			e.printStackTrace();
-			commandeCli = null;
-			builder.status(406);
-		}
+		commandeCli = commmandeEjb.editCommandClient(idCommande);
+		builder.status(200);
 		builder = Response.ok(commandeCli);
 		return builder.build();
 	}
@@ -65,14 +54,10 @@ public class CommandeRessource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response createCommand(@PathParam("idClient") Integer idClient, CommandeClient commandeClient) {
 				
-		try {
-			System.out.println("création de la commande");
-			commandeClient.setClient(userEJB.getUser(idClient));
-			commmandeEjb.updateCommandeClient(commandeClient);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
+		System.out.println("création de la commande");
+		commandeClient.setClient(userEJB.getUser(idClient));
+		commmandeEjb.updateCommandeClient(commandeClient);
+
 		return Response.status(Response.Status.CREATED).entity(commandeClient).build();
 	}
 	
@@ -82,12 +67,9 @@ public class CommandeRessource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response updateCommande(@PathParam("idClient") Integer idClient, CommandeClient commandeClient) {
 		
-		try {
-			System.out.println("mise à jour de la commande du client " + idClient);
-			commmandeEjb.updateCommandeClient(commandeClient);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		System.out.println("mise à jour de la commande du client " + idClient);
+		commmandeEjb.updateCommandeClient(commandeClient);
+
 		return Response.status(Response.Status.CREATED).entity(commandeClient).build();
 	}
 	
@@ -98,14 +80,10 @@ public class CommandeRessource {
 		
 		ResponseBuilder builder= Response.ok("");
 		
-		try {
-			System.out.println("suppression de la commande du client " + idClient);
-			commmandeEjb.deleteCommandeClient(idCommande);
-			builder.status(200);
-		} catch (Exception e) {
-			e.printStackTrace();
-			builder.status(404);
-		}
+		System.out.println("suppression de la commande du client " + idClient);
+		commmandeEjb.deleteCommandeClient(idCommande);
+		builder.status(200);
+
 		return builder.build();
 	}
 }

@@ -19,11 +19,7 @@ public class ProduitDAO implements IProduitDAO {
 
 	@Override
 	public void addProduit(Produit produit) {
-		try{
-			em.persist(produit);
-		} catch(Exception e) {
-			e.printStackTrace();			
-		}
+		em.persist(produit);
 	}
 
 	@Override
