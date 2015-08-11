@@ -98,21 +98,21 @@ CREATE TABLE IF NOT EXISTS `produit` (
 --
 
 INSERT INTO `produit` (`id`, `libelle`, `caracteritique`, `categorie`, `image`, `prix`) VALUES
-(1, 'Truc High-Tech', 'Il sert à rien mais il est cool', 'High-Tech', 'http://lorempixel.com/400/200/technics', 100),
-(2, 'Moto', 'Elle a 2 roues et un guidon', 'Vehicule', 'http://lorempixel.com/400/200/transport', 2999.99),
-(3, 'Chat', 'Très affectueux', 'Animaux de compagnie', 'http://lorempixel.com/400/200/cats', 9.99),
-(4, 'Kebab', 'Viande de qualité, frites de qualité', 'Alimentation', 'http://lorempixel.com/400/200/food', 9.99),
-(5, 'Batte de baseball', 'A peu servi', 'Sports', 'http://lorempixel.com/400/200/sports', 99.99),
-(6, 'Truc High-Tech', 'Il sert à rien mais il est cool', 'High-Tech', 'http://lorempixel.com/400/200/technics', 100),
-(7, 'Moto', 'Elle a 2 roues et un guidon', 'Vehicule', 'http://lorempixel.com/400/200/transport', 2999.99),
-(8, 'Chat', 'Très affectueux', 'Animaux de compagnie', 'http://lorempixel.com/400/200/cats', 9.99),
-(9, 'Kebab', 'Viande de qualité, frites de qualité', 'Alimentation', 'http://lorempixel.com/400/200/food', 9.99),
-(10, 'Batte de baseball', 'A peu servi', 'Sports', 'http://lorempixel.com/400/200/sports', 99.99),
-(11, 'Truc High-Tech', 'Il sert à rien mais il est cool', 'High-Tech', 'http://lorempixel.com/400/200/technics', 100),
-(12, 'Moto', 'Elle a 2 roues et un guidon', 'Vehicule', 'http://lorempixel.com/400/200/transport', 2999.99),
-(13, 'Chat', 'Très affectueux', 'Animaux de compagnie', 'http://lorempixel.com/400/200/cats', 9.99),
-(14, 'Kebab', 'Viande de qualité, frites de qualité', 'Alimentation', 'http://lorempixel.com/400/200/food', 9.99),
-(15, 'Batte de baseball', 'A peu servi', 'Sports', 'http://lorempixel.com/400/200/sports', 99.99);
+(1, 'Truc High-Tech', 'Il sert à rien mais il est cool', 'High-Tech', 'http://lorempixel.com/200/200/technics', 100),
+(2, 'Moto', 'Elle a 2 roues et un guidon', 'Vehicule', 'http://lorempixel.com/200/200/transport', 2999.99),
+(3, 'Chat', 'Très affectueux', 'Animaux de compagnie', 'http://lorempixel.com/200/200/cats', 9.99),
+(4, 'Kebab', 'Viande de qualité, frites de qualité', 'Alimentation', 'http://lorempixel.com/200/200/food', 9.99),
+(5, 'Batte de baseball', 'A peu servi', 'Sports', 'http://lorempixel.com/200/200/sports', 99.99),
+(6, 'Truc High-Tech', 'Il sert à rien mais il est cool', 'High-Tech', 'http://lorempixel.com/200/200/technics', 100),
+(7, 'Moto', 'Elle a 2 roues et un guidon', 'Vehicule', 'http://lorempixel.com/200/200/transport', 2999.99),
+(8, 'Chat', 'Très affectueux', 'Animaux de compagnie', 'http://lorempixel.com/200/200/cats', 9.99),
+(9, 'Kebab', 'Viande de qualité, frites de qualité', 'Alimentation', 'http://lorempixel.com/200/200/food', 9.99),
+(10, 'Batte de baseball', 'A peu servi', 'Sports', 'http://lorempixel.com/200/200/sports', 99.99),
+(11, 'Truc High-Tech', 'Il sert à rien mais il est cool', 'High-Tech', 'http://lorempixel.com/200/200/technics', 100),
+(12, 'Moto', 'Elle a 2 roues et un guidon', 'Vehicule', 'http://lorempixel.com/200/200/transport', 2999.99),
+(13, 'Chat', 'Très affectueux', 'Animaux de compagnie', 'http://lorempixel.com/200/200/cats', 9.99),
+(14, 'Kebab', 'Viande de qualité, frites de qualité', 'Alimentation', 'http://lorempixel.com/200/200/food', 9.99),
+(15, 'Batte de baseball', 'A peu servi', 'Sports', 'http://lorempixel.com/200/200/sports', 99.99);
 
 -- --------------------------------------------------------
 
