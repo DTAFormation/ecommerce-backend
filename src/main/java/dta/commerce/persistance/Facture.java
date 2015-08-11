@@ -28,9 +28,11 @@ public class Facture {
 	private String modepaiement;
 	
 	@ManyToOne
+	@JsonIgnore
 	private Adresse adresselivraison;
 	
 	@ManyToOne
+	@JsonIgnore
 	private Adresse adressefacturation;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
