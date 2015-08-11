@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="facture") 
 public class Facture {
@@ -26,12 +28,15 @@ public class Facture {
 	private String modepaiement;
 	
 	@ManyToOne
+	@JsonIgnore
 	private Adresse adresselivraison;
 	
 	@ManyToOne
+	@JsonIgnore
 	private Adresse adressefacturation;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
+	@JsonIgnore
 	private CommandeClient commandeClient;
 
 	
