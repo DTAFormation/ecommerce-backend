@@ -17,6 +17,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.ResponseBuilder;
 
 import dta.commerce.ejb.IUserEJB;
+import dta.commerce.persistance.Admin;
 import dta.commerce.persistance.User;
 
 @Path("/user")
@@ -88,6 +89,22 @@ public class UserRessource {
 			user.setId(null);
 			ResponseBuilder builder = Response.ok(user);
 			return builder.build(); 
+		}
+	
+		// ****** TROUVER LOGIN USER ******
+		@POST
+		@Path("/chercher/{login}/")
+		public Response connectUser(@PathParam(value = "login") String login){
+			
+			for (User user : myEJB.listerUser()) {
+				if (login.equals(user.getLogin())){
+						ResponseBuilder builderOK = Response.status(200);
+						return builderOK.build();
+				}
+			}
+			ResponseBuilder builderOK = Response.status(405);
+			return builderOK.build();
+			
 		}
 	
 		
