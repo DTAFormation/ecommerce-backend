@@ -64,8 +64,8 @@ public class ProduitRessource {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/byIds")
-	public Response listerProduitsById( @QueryParam("ids") String idProduits){
+	@Path("/byIds/{ids}")
+	public Response listerProduitsById( @PathParam("ids") String idProduits){
 		List<Produit> myProduits = new ArrayList<Produit>();
 		for(String id : idProduits.split(",")) {
 			myProduits.add(produitEjb.getProduit(Integer.valueOf(id)));
