@@ -19,6 +19,7 @@ public class CommandeProduits {
 	private Integer id;
 	
 	@ManyToOne(targetEntity=Produit.class, cascade=CascadeType.ALL)
+	@JsonIgnore
 	private Produit Produit;
 	
 	@ManyToOne
