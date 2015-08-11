@@ -92,7 +92,7 @@ public class UserRessource {
 		}
 	
 		// ****** TROUVER LOGIN USER ******
-		@POST
+		@GET
 		@Path("/chercher/{login}/")
 		public Response connectUser(@PathParam(value = "login") String login){
 			
