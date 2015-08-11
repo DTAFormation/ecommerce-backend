@@ -1,5 +1,5 @@
 package dta.commerce.persistance;
-//import org.eclipse.persistance.annotations.PrivateOwned;
+
 
 import java.util.ArrayList;
 import java.util.List;

@@ -60,6 +60,7 @@ public class UserRessource {
 		@Produces(MediaType.APPLICATION_JSON)
 		public Response getUser(@PathParam(value = "id") Integer user) {
 			User myUser = new User();
+
 			myUser = myEJB.getUser(user);
 			ResponseBuilder builder = Response.ok(myUser);
 			builder.status(200);
@@ -67,6 +68,7 @@ public class UserRessource {
 		}
 		
 		// ****** LISTER USER ******
+
 		@GET
 		@Produces(MediaType.APPLICATION_JSON)
 		public Response getUser() {

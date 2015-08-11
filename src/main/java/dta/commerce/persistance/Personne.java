@@ -37,19 +37,7 @@ public class Personne {
 	/**
 	 * Constructeurs
 	 */
-//	public Personne(Integer id, String nom, String prenom, String login,
-//			String password) {
-//		super();
-//		this.id = id;
-//		this.nom = nom;
-//		this.prenom = prenom;
-//		this.login = login;
-//		this.password = password;
-//	}
-//	public Personne(){
-//		
-//	}
-	
+
 	
 	/**
 	 * Getters & setters

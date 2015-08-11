@@ -22,18 +22,5 @@ public interface ICommandeEJB {
 	public CommandeClient editCommandClient (Integer idCommandeClient);
 	
 	public  void createCommandeClient(CommandeClient commandeClient);
-	
-	/**
-	 * Méthodes pour les commandes produits
-	 */
 
-	public void createCommandeProduit(CommandeProduits commandeProduits);
-	
-	public void deleteCommandeProduit(CommandeProduits commandeProduits);
-
-	public void updateCommandeProduit(CommandeProduits commandeProduits);
-
-	public List<CommandeProduits> listerCommandeProduit();
-
-	public CommandeProduits editCommandProduit (Integer idCommandeProduit);
 }
