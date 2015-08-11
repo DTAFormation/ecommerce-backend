@@ -33,10 +33,10 @@ public class CommandeEJB implements ICommandeEJB{
 		commandeDao.updateCommandeClient(commandeClient);
 	}
 
-	public List<CommandeClient> listerCommandeClient() {
-		return commandeDao.listerCommandeClient();
+	public List<CommandeClient> listerCommandeClient(Integer idClient) {
+		return commandeDao.listerCommandeClient(idClient);
 	}
-
+	
 	public CommandeClient editCommandClient (Integer idCommandeClient) {
 		return commandeDao.editCommandClient(idCommandeClient);
 	}
