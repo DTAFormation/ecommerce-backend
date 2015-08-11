@@ -26,6 +26,7 @@ public class User extends Personne {
 	 */
 	@OneToMany(mappedBy="client", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
 	@MapKey(name="id")
+	@JsonIgnore
 	private List<Adresse> adresses = new ArrayList<Adresse>();
 	
 	@OneToMany(mappedBy = "client", fetch=FetchType.EAGER)
