@@ -159,7 +159,7 @@ INSERT INTO `commande_client` (`id`, `etat`, `client`, `facture`) VALUES
 
 CREATE TABLE IF NOT EXISTS `commande_produits` (
   `id` int(11) NOT NULL,
-  `quantité` int(11) DEFAULT NULL,
+  `quantite` int(11) DEFAULT NULL,
   `produit` int(11) DEFAULT NULL,
   `commande_client` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -171,7 +171,7 @@ CREATE TABLE IF NOT EXISTS `commande_produits` (
 -- Contenu de la table `commande_produits`
 --
 
-INSERT INTO `commande_produits` (`id`, `quantité`, `produit`, `commande_client`) VALUES
+INSERT INTO `commande_produits` (`id`, `quantite`, `produit`, `commande_client`) VALUES
 (1, 2, 4, 1),
 (2, 1, 2, 1),
 (3, 3, 1, 2),
