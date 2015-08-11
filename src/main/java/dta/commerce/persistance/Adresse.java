@@ -14,14 +14,17 @@ public class Adresse {
 	/** 
 	 * Attributs
 	 */
-	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
+	
 	private Integer numero;
+	
 	private String rue;
+	
 	private String ville;
 	
 	@ManyToOne
-	private Personne client;
+	private User client;
 	
 
 
@@ -70,11 +73,11 @@ public class Adresse {
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
-	public Personne getClient() {
+	public User getClient() {
 		return client;
 	}
 
-	public void setClient(Personne client) {
+	public void setClient(User client) {
 		this.client = client;
 	}
 }
