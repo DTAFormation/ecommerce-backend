@@ -14,7 +14,7 @@ import org.junit.Test;
 
 import dta.commerce.persistance.Produit;
 
-public class ProduitRessourceTest {
+public class ProduitRessourceTestIntegration {
 	
 	private javax.ws.rs.client.Client client;
 	private WebTarget target;
