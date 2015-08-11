@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="adresse")
 public class Adresse {
@@ -23,7 +25,9 @@ public class Adresse {
 	
 	private String ville;
 	
+	
 	@ManyToOne
+	@JsonIgnore
 	private User client;
 	
 
