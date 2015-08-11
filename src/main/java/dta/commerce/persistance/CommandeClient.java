@@ -14,11 +14,14 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import com.fasterxml.jackson.annotation.JsonIgnore;;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="commandeClient") 
 @NamedQuery(name="Commande.findAll",query="select c from CommandeClient as c")
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class CommandeClient {
 	
 	/** 
