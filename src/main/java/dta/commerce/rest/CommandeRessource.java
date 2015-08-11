@@ -19,7 +19,7 @@ import dta.commerce.ejb.ICommandeEJB;
 import dta.commerce.ejb.IUserEJB;
 import dta.commerce.persistance.CommandeClient;
 
-@Path("/client")
+@Path("/user")
 public class CommandeRessource {
 @EJB ICommandeEJB commmandeEjb;
 @EJB IUserEJB	userEJB;
