@@ -22,9 +22,13 @@ public class Personne {
 	 */
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
+	
 	private String nom;
+	
 	private String prenom;
+	
 	private String login;
+	
 	private String password;
 	
 	
