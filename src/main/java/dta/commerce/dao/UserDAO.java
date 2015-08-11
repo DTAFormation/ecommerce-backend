@@ -58,6 +58,7 @@ public class UserDAO implements IUserDAO {
 	@Override
 	@Transactional
 	public User getUser(Integer user) {
+		//modifier pour avoir typedquery
 		User myUser = (User) em.createQuery("Select u from User as u where u.id=" + user + "").getSingleResult();
 		return myUser;
 	}

@@ -24,7 +24,7 @@ public class CommandeProduits {
 	private CommandeClient commandeClient;
 	
 	// quantité lié à chaque item de la liste 
-	private Integer quantité;
+	private Integer quantite;
 
 
 	/**
@@ -68,12 +68,12 @@ public class CommandeProduits {
 		Produit = produit;
 	}
 
-	public Integer getQuantité() {
-		return quantité;
+	public Integer getQuantite() {
+		return quantite;
 	}
 
-	public void setQuantité(Integer quantité) {
-		this.quantité = quantité;
+	public void setQuantite(Integer quantite) {
+		this.quantite = quantite;
 	} 
 
 
