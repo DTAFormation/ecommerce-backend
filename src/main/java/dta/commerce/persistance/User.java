@@ -12,6 +12,8 @@ import javax.persistence.MapKey;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @NamedQuery(
 		name="User.findAll",
@@ -27,6 +29,7 @@ public class User extends Personne {
 	private List<Adresse> adresses = new ArrayList<Adresse>();
 	
 	@OneToMany(mappedBy = "client", fetch=FetchType.EAGER)
+	@JsonIgnore
 	private List<CommandeClient> listCommandes = new ArrayList<CommandeClient>();
 	
 	/**

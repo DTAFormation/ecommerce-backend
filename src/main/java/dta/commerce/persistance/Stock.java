@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="stock") 
 public class Stock {
@@ -17,6 +19,7 @@ public class Stock {
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id; 
 	@ManyToOne
+	@JsonIgnore
 	private Produit prod;
 	private Integer qte;
 	

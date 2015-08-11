@@ -35,9 +35,11 @@ public class CommandeClient {
 	private User client;
 	
 	@OneToMany(mappedBy="commandeClient", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JsonIgnore
 	private List<CommandeProduits> commandeProduits = new ArrayList<CommandeProduits>();
 
 	@OneToOne
+	@JsonIgnore
 	private Facture facture;
 	
 	private String etat;

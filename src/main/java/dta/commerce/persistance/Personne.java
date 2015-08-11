@@ -1,7 +1,6 @@
 package dta.commerce.persistance;
 
 import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,7 +13,6 @@ import javax.persistence.Table;
 @Table(name="personne") 
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="TYPE_PERSONNE")
-@DiscriminatorValue("P")
 public class Personne {
 	
 	/** 
