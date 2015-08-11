@@ -40,22 +40,14 @@ public class ProduitRessource {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response addProduit(Produit produit) {
-		try {
-			produitEjb.addProduit(produit);
-		} catch (Exception e) {
-			return Response.status(Response.Status.BAD_REQUEST).build();
-		}
+		produitEjb.addProduit(produit);
 		return Response.status(Response.Status.CREATED).entity(produit).build();
 	}
 	
 	@DELETE
 	@Path("/{id}")
 	public Response deleteProduit(@PathParam("id") Integer idProduit) {
-		try {
-			produitEjb.deleteProduit(idProduit);
-		} catch (Exception e) {
-			return Response.status(Response.Status.BAD_REQUEST).build();
-		}
+		produitEjb.deleteProduit(idProduit);
 		return Response.status(Response.Status.OK).build();
 	}
 	
@@ -63,11 +55,7 @@ public class ProduitRessource {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response updateProduit(Produit produit) {
-		try {
-			produitEjb.updateProduit(produit);
-		} catch (Exception e) {
-			return Response.status(Response.Status.BAD_REQUEST).build();
-		}
+		produitEjb.updateProduit(produit);
 		return Response.status(Response.Status.OK).build();
 	}
 }

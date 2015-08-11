@@ -29,15 +29,10 @@ public class AdminRessource {
 
 	
 	// ****** AJOUTER ADMIN ******
-	@PUT
-	@Path("/add")
+	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response addAdmin(Admin admin) {
-		try {
-			adminEjb.addAdmin(admin);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		adminEjb.addAdmin(admin);
 		ResponseBuilder builder = Response.ok();
 		builder.status(201);
 		return builder.build(); 
@@ -45,14 +40,9 @@ public class AdminRessource {
 	
 	// ****** MODIFIER ADMIN ******
 	@PUT
-	@Path("/update")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response updateAdmin(Admin admin) {
-		try {
-			adminEjb.updateAdmin(admin);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		adminEjb.updateAdmin(admin);
 		ResponseBuilder builder = Response.ok();
 		builder.status(200);
 		return builder.build(); 
@@ -60,13 +50,9 @@ public class AdminRessource {
 	
 	// ****** SUPPRIMER ADMIN ******
 		@DELETE
-		@Path("/delete/{id}")
+		@Path("/{id}")
 		public Response deleteAdmin(@PathParam(value = "id") Integer admin) {
-			try {
-				adminEjb.deleteAdmin(admin);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			adminEjb.deleteAdmin(admin);
 			ResponseBuilder builder = Response.ok();
 			builder.status(200);
 			return builder.build(); 
@@ -74,35 +60,29 @@ public class AdminRessource {
 		
 		// ****** GET ADMIN ******
 		@GET
-		@Path("/get/{id}")
+		@Path("/{id}")
 		@Produces(MediaType.APPLICATION_JSON)
 		public Response getAdmin(@PathParam(value = "id") Integer admin) {
 			Admin myAdmin = new Admin();
-			try {
-				myAdmin = adminEjb.getAdmin(admin);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			myAdmin = adminEjb.getAdmin(admin);
 			ResponseBuilder builder = Response.ok(myAdmin);
 			builder.status(200);
 			return builder.build(); 
 		}
 		
 		// ****** LISTER ADMIN ******
-			@GET
-			@Path("/get")
-			@Produces(MediaType.APPLICATION_JSON)
-			public Response getAdmin() {
-					List<Admin> myAdmins= new ArrayList<Admin>();
-					try {
-						myAdmins = adminEjb.listerAdmin();
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-					ResponseBuilder builder = Response.ok(myAdmins);
-					builder.status(200);
-					return builder.build(); 
-				}
+		@GET
+		@Produces(MediaType.APPLICATION_JSON)
+		public Response getAdmin() {
+				List<Admin> myAdmins= new ArrayList<Admin>();
+				myAdmins = adminEjb.listerAdmin();
+				ResponseBuilder builder = Response.ok(myAdmins);
+				builder.status(200);
+				return builder.build(); 
+			}
+			
+		// ****** CONNECTER USER ******
+
 			
 			
 }
