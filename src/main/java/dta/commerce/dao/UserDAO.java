@@ -20,14 +20,8 @@ public class UserDAO implements IUserDAO {
 	 */
 	@Override
 	public void addUser(User user){
-		try{
-			em.persist(user);
-		}catch(Exception e) {
-			e.printStackTrace();
-			
-		}
-		
-		
+		em.persist(user);
+
 	}
 
 	/* (non-Javadoc)
@@ -58,18 +52,21 @@ public class UserDAO implements IUserDAO {
 	@Override
 	@Transactional
 	public User getUser(Integer user) {
-		User myUser = (User) em.createQuery("Select u from User as u where u.id=" + user + "").getSingleResult();
+		String textQuery="Select u from User as u where u.id=:id";
+		TypedQuery<User> query=em.createQuery(textQuery, User.class);
+		query.setParameter("id",user);
+		User myUser=query.getSingleResult();
 		return myUser;
 	}
 	
 	@Override
 	@Transactional
 	public User getInfosUser(String pLogin, String pMdp){
-		String textQuery="Select p from Personne as p where p.login = :login and p.password = :mdp";
-		TypedQuery<Personne> query=em.createQuery(textQuery, Personne.class);
+		String textQuery="Select u from User as u where u.login = :login and u.password = :mdp";
+		TypedQuery<User> query=em.createQuery(textQuery, User.class);
 		query.setParameter("login",pLogin);
 		query.setParameter("mdp",pMdp);
-		User user=(User)query.getSingleResult();
+		User user=query.getSingleResult();
 		
 		return user;
 	}

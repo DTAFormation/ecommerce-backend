@@ -5,7 +5,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-
 import dta.commerce.persistance.CommandeClient;
 import dta.commerce.persistance.CommandeProduits;
 
@@ -34,10 +33,11 @@ public class CommandeDAO implements ICommandeDAO{
 	}
 	
 	@Override
-	public List<CommandeClient> listerCommandeClient() {
+	public List<CommandeClient> listerCommandeClient(Integer idClient) {
 		
-		TypedQuery<CommandeClient> selectQuery = em.createQuery("select cde FROM CommandeClient as cde",CommandeClient.class);
-			
+		TypedQuery<CommandeClient> selectQuery = em.createQuery("select cde FROM CommandeClient as cde where cde.client.id = :x",CommandeClient.class);
+		selectQuery.setParameter("x", idClient);
+		
 		return (List<CommandeClient>)selectQuery.getResultList();
 	}
 
