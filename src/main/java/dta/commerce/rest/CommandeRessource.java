@@ -25,13 +25,13 @@ public class CommandeRessource {
 @EJB IUserEJB	userEJB;
 	
 	@GET
-	@Path("/commandes")
+	@Path("/{idClient}/commandes")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response getAllCommands() {
+	public Response getClientCommandes(@PathParam("idClient") Integer idClient) {
 		
 		List<CommandeClient> listCde;
 		try {
-			listCde = commmandeEjb.listerCommandeClient();
+			listCde = commmandeEjb.listerCommandeClient(idClient);
 		} catch (Exception e) {
 			e.printStackTrace();
 			listCde = null;
@@ -41,16 +41,14 @@ public class CommandeRessource {
 	}
 	
 	@GET
-	@Path("/{idClient}/commandes")
+	@Path("/{idClient}/commande/{idCommande}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response getCommandbyID(@PathParam("idClient") Integer id) {
+	public Response getCommandbyID(@PathParam("idClient") Integer idClient, @PathParam("idCommande") Integer idCommande) {
 		
 		ResponseBuilder builder= Response.ok("");
 		CommandeClient commandeCli;
-		
 		try {
-			System.out.println("récupération de la commande de l'user :" + id);
-			commandeCli = commmandeEjb.editCommandClient(id);
+			commandeCli = commmandeEjb.editCommandClient(idCommande);
 			builder.status(200);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -82,7 +80,7 @@ public class CommandeRessource {
 	@Path("/{idClient}/commande")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response updateCommand(@PathParam("idClient") Integer idClient, CommandeClient commandeClient) {
+	public Response updateCommande(@PathParam("idClient") Integer idClient, CommandeClient commandeClient) {
 		
 		try {
 			System.out.println("mise à jour de la commande du client " + idClient);
@@ -96,7 +94,7 @@ public class CommandeRessource {
 	@DELETE
 	@Path("/{idClient}/commande/{idCommande}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response createCommandbyID(@PathParam("idClient") Integer idClient, @PathParam("idCommande") Integer idCommande ) {
+	public Response deleteCommandbyID(@PathParam("idClient") Integer idClient, @PathParam("idCommande") Integer idCommande ) {
 		
 		ResponseBuilder builder= Response.ok("");
 		
