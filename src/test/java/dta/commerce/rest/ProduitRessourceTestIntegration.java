@@ -7,7 +7,7 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import static junit.framework.Assert.*;
+import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -54,7 +54,7 @@ public class ProduitRessourceTestIntegration {
 	
 	public Produit testAddProduit(Produit produit) {
 		Invocation.Builder builder = target.path("produit").request();
-		Entity e = Entity.entity(produit, MediaType.APPLICATION_JSON);
+		Entity<Produit> e = Entity.entity(produit, MediaType.APPLICATION_JSON);
 		Response resp = builder.post(e);
 		assertEquals("Test du POST sur /produit", 201, resp.getStatus());
 		return resp.readEntity(Produit.class);
@@ -62,7 +62,7 @@ public class ProduitRessourceTestIntegration {
 	
 	public void testUpdateProduit(Produit produit) {
 		Invocation.Builder builder = target.path("produit").request();
-		Entity e = Entity.entity(produit, MediaType.APPLICATION_JSON);
+		Entity<Produit> e = Entity.entity(produit, MediaType.APPLICATION_JSON);
 		Response resp = builder.put(e);
 		assertEquals("Test du PUT sur /produit", 200, resp.getStatus());
 	}

@@ -85,7 +85,7 @@ INSERT INTO `adresse` (`id`, `numero`, `rue`, `ville`, `client`) VALUES
 
 CREATE TABLE IF NOT EXISTS `produit` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `caracteritique` varchar(255) DEFAULT NULL,
+  `caracteristique` varchar(255) DEFAULT NULL,
   `categorie` varchar(255) DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
   `libelle` varchar(255) DEFAULT NULL,
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `produit` (
 -- Contenu de la table `produit`
 --
 
-INSERT INTO `produit` (`id`, `libelle`, `caracteritique`, `categorie`, `image`, `prix`) VALUES
+INSERT INTO `produit` (`id`, `libelle`, `caracteristique`, `categorie`, `image`, `prix`) VALUES
 (1, 'Truc High-Tech', 'Il sert à rien mais il est cool', 'High-Tech', 'http://lorempixel.com/200/200/technics', 100),
 (2, 'Moto', 'Elle a 2 roues et un guidon', 'Vehicule', 'http://lorempixel.com/200/200/transport', 2999.99),
 (3, 'Chat', 'Très affectueux', 'Animaux de compagnie', 'http://lorempixel.com/200/200/cats', 9.99),
