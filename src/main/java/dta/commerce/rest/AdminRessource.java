@@ -81,8 +81,8 @@ public class AdminRessource {
 				return builder.build(); 
 			}
 			
-		// ****** CONNECTER USER ******
-
+		// ****** CONNECTER ADMIN ******
+		
 			
 			
 }
