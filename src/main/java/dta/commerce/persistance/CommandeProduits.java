@@ -8,9 +8,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="commandeProduits") 
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class CommandeProduits {
 
 	@Id @GeneratedValue

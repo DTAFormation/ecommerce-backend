@@ -75,7 +75,7 @@ public class CommandeRessourceTestIntegration {
 		Invocation.Builder builder = target.path("client").path("1").path("commande").request();
 		Entity e = Entity.entity(commandeClient, MediaType.APPLICATION_JSON);
 		Response resp = builder.put(e);
-		assertEquals("Test du PUT sur /{idClient}/commande", 200, resp.getStatus());
+		assertEquals("Test du PUT sur /{idClient}/commande", 201, resp.getStatus());
 	}
 	
 	public void testDeleteCommandbyID(Integer id) {
