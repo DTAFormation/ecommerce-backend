@@ -82,6 +82,40 @@ public class AdminRessource {
 			}
 			
 		// ****** CONNECTER ADMIN ******
+		@POST
+		@Produces(MediaType.APPLICATION_JSON)
+		@Consumes(MediaType.APPLICATION_JSON)
+		@Path("/connect/")
+		public Response connectUser(Admin data){
+			
+			for (Admin admin : adminEjb.listerAdmin()) {
+				if (data.getLogin().equals(admin.getLogin())){
+					if (data.getPassword().equals(admin.getPassword())){
+						ResponseBuilder builderOK = Response.status(200);
+						return builderOK.build();
+					} 
+				}
+			}
+			ResponseBuilder builderOK = Response.status(405);
+			return builderOK.build();
+			
+		}
+		
+		// ****** TROUVER LOGIN ADMIN ******
+			@POST
+			@Path("/chercher/{login}/")
+			public Response connectUser(@PathParam(value = "login") String login){
+				
+				for (Admin admin : adminEjb.listerAdmin()) {
+					if (login.equals(admin.getLogin())){
+							ResponseBuilder builderOK = Response.status(200);
+							return builderOK.build();
+					}
+				}
+				ResponseBuilder builderOK = Response.status(405);
+				return builderOK.build();
+				
+			}
 		
 			
 			
