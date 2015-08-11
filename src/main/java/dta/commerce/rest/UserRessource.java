@@ -29,11 +29,7 @@ public class UserRessource {
 	@Path("/add")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response addUser(User user) {
-		try {
-			myEJB.addUser(user);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		myEJB.addUser(user);
 		ResponseBuilder builder = Response.ok();
 		builder.status(201);
 		return builder.build(); 
@@ -44,11 +40,7 @@ public class UserRessource {
 	@Path("/update")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response updateUser(User user) {
-		try {
-			myEJB.updateUser(user);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		myEJB.updateUser(user);
 		ResponseBuilder builder = Response.ok();
 		builder.status(200);
 		return builder.build(); 
@@ -58,11 +50,7 @@ public class UserRessource {
 		@DELETE
 		@Path("/delete/{id}")
 		public Response deleteUser(@PathParam(value = "id") Integer user) {
-			try {
-				myEJB.deleteUser(user);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			myEJB.deleteUser(user);
 			ResponseBuilder builder = Response.ok();
 			builder.status(200);
 			return builder.build(); 
@@ -74,11 +62,8 @@ public class UserRessource {
 		@Produces(MediaType.APPLICATION_JSON)
 		public Response getUser(@PathParam(value = "id") Integer user) {
 			User myUser = new User();
-			try {
-				myUser = myEJB.getUser(user);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			
+			myUser = myEJB.getUser(user);
 			ResponseBuilder builder = Response.ok(myUser);
 			builder.status(200);
 			return builder.build(); 
@@ -90,11 +75,8 @@ public class UserRessource {
 			@Produces(MediaType.APPLICATION_JSON)
 			public Response getAdmin() {
 					List<User> myUsers= new ArrayList<User>();
-					try {
-						myUsers = myEJB.listerUser();
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
+					myUsers = myEJB.listerUser();
+					
 					ResponseBuilder builder = Response.ok(myUsers);
 					builder.status(200);
 					return builder.build(); 
