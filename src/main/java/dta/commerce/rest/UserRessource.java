@@ -88,7 +88,7 @@ public class UserRessource {
 			@GET
 			@Path("/get")
 			@Produces(MediaType.APPLICATION_JSON)
-			public Response getAdmin() {
+			public Response getUser() {
 					List<User> myUsers= new ArrayList<User>();
 					try {
 						myUsers = myEJB.listerUser();
