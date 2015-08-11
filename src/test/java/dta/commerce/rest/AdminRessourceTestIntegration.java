@@ -20,7 +20,7 @@ import javax.ws.rs.core.Response;
 
 
 
-public class AdminRessourceTest {
+public class AdminRessourceTestIntegration {
 	private javax.ws.rs.client.Client client;
 	private WebTarget target;
 	
