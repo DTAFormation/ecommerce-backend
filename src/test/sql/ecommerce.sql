@@ -80,6 +80,43 @@ INSERT INTO `adresse` (`id`, `numero`, `rue`, `ville`, `client`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `produit`
+--
+
+CREATE TABLE IF NOT EXISTS `produit` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `caracteritique` varchar(255) DEFAULT NULL,
+  `categorie` varchar(255) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `libelle` varchar(255) DEFAULT NULL,
+  `prix` float DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Contenu de la table `produit`
+--
+
+INSERT INTO `produit` (`id`, `libelle`, `caracteritique`, `categorie`, `image`, `prix`) VALUES
+(1, 'Truc High-Tech', 'Il sert à rien mais il est cool', 'High-Tech', 'http://lorempixel.com/400/200/technics', 100),
+(2, 'Moto', 'Elle a 2 roues et un guidon', 'Vehicule', 'http://lorempixel.com/400/200/transport', 2999.99),
+(3, 'Chat', 'Très affectueux', 'Animaux de compagnie', 'http://lorempixel.com/400/200/cats', 9.99),
+(4, 'Kebab', 'Viande de qualité, frites de qualité', 'Alimentation', 'http://lorempixel.com/400/200/food', 9.99),
+(5, 'Batte de baseball', 'A peu servi', 'Sports', 'http://lorempixel.com/400/200/sports', 99.99),
+(6, 'Truc High-Tech', 'Il sert à rien mais il est cool', 'High-Tech', 'http://lorempixel.com/400/200/technics', 100),
+(7, 'Moto', 'Elle a 2 roues et un guidon', 'Vehicule', 'http://lorempixel.com/400/200/transport', 2999.99),
+(8, 'Chat', 'Très affectueux', 'Animaux de compagnie', 'http://lorempixel.com/400/200/cats', 9.99),
+(9, 'Kebab', 'Viande de qualité, frites de qualité', 'Alimentation', 'http://lorempixel.com/400/200/food', 9.99),
+(10, 'Batte de baseball', 'A peu servi', 'Sports', 'http://lorempixel.com/400/200/sports', 99.99),
+(11, 'Truc High-Tech', 'Il sert à rien mais il est cool', 'High-Tech', 'http://lorempixel.com/400/200/technics', 100),
+(12, 'Moto', 'Elle a 2 roues et un guidon', 'Vehicule', 'http://lorempixel.com/400/200/transport', 2999.99),
+(13, 'Chat', 'Très affectueux', 'Animaux de compagnie', 'http://lorempixel.com/400/200/cats', 9.99),
+(14, 'Kebab', 'Viande de qualité, frites de qualité', 'Alimentation', 'http://lorempixel.com/400/200/food', 9.99),
+(15, 'Batte de baseball', 'A peu servi', 'Sports', 'http://lorempixel.com/400/200/sports', 99.99);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `commande_client`
 --
 
@@ -253,43 +290,6 @@ INSERT INTO `personne` (`id`, `nom`, `prenom`, `login`, `password`, `TYPE_PERSON
 (18, 'USER10', 'User10', 'loginUser10', 'pwdUser10', 'U'),
 (19, 'USER11', 'User11', 'loginUser11', 'pwdUser11', 'U'),
 (20, 'USER12', 'User12', 'loginUser12', 'pwdUser12', 'U');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `produit`
---
-
-CREATE TABLE IF NOT EXISTS `produit` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `caracteritique` varchar(255) DEFAULT NULL,
-  `categorie` varchar(255) DEFAULT NULL,
-  `image` varchar(255) DEFAULT NULL,
-  `libelle` varchar(255) DEFAULT NULL,
-  `prix` float DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
---
--- Contenu de la table `produit`
---
-
-INSERT INTO `produit` (`id`, `libelle`, `caracteritique`, `categorie`, `image`, `prix`) VALUES
-(1, 'Truc High-Tech', 'Il sert à rien mais il est cool', 'High-Tech', 'http://lorempixel.com/400/200/technics', 100),
-(2, 'Moto', 'Elle a 2 roues et un guidon', 'Vehicule', 'http://lorempixel.com/400/200/transport', 2999.99),
-(3, 'Chat', 'Très affectueux', 'Animaux de compagnie', 'http://lorempixel.com/400/200/cats', 9.99),
-(4, 'Kebab', 'Viande de qualité, frites de qualité', 'Alimentation', 'http://lorempixel.com/400/200/food', 9.99),
-(5, 'Batte de baseball', 'A peu servi', 'Sports', 'http://lorempixel.com/400/200/sports', 99.99),
-(6, 'Truc High-Tech', 'Il sert à rien mais il est cool', 'High-Tech', 'http://lorempixel.com/400/200/technics', 100),
-(7, 'Moto', 'Elle a 2 roues et un guidon', 'Vehicule', 'http://lorempixel.com/400/200/transport', 2999.99),
-(8, 'Chat', 'Très affectueux', 'Animaux de compagnie', 'http://lorempixel.com/400/200/cats', 9.99),
-(9, 'Kebab', 'Viande de qualité, frites de qualité', 'Alimentation', 'http://lorempixel.com/400/200/food', 9.99),
-(10, 'Batte de baseball', 'A peu servi', 'Sports', 'http://lorempixel.com/400/200/sports', 99.99),
-(11, 'Truc High-Tech', 'Il sert à rien mais il est cool', 'High-Tech', 'http://lorempixel.com/400/200/technics', 100),
-(12, 'Moto', 'Elle a 2 roues et un guidon', 'Vehicule', 'http://lorempixel.com/400/200/transport', 2999.99),
-(13, 'Chat', 'Très affectueux', 'Animaux de compagnie', 'http://lorempixel.com/400/200/cats', 9.99),
-(14, 'Kebab', 'Viande de qualité, frites de qualité', 'Alimentation', 'http://lorempixel.com/400/200/food', 9.99),
-(15, 'Batte de baseball', 'A peu servi', 'Sports', 'http://lorempixel.com/400/200/sports', 99.99);
 
 -- --------------------------------------------------------
 
