@@ -85,7 +85,7 @@ INSERT INTO `adresse` (`id`, `numero`, `rue`, `ville`, `client`) VALUES
 
 CREATE TABLE IF NOT EXISTS `produit` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `caracteritique` varchar(255) DEFAULT NULL,
+  `caracteristique` varchar(255) DEFAULT NULL,
   `categorie` varchar(255) DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
   `libelle` varchar(255) DEFAULT NULL,
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `produit` (
 -- Contenu de la table `produit`
 --
 
-INSERT INTO `produit` (`id`, `libelle`, `caracteritique`, `categorie`, `image`, `prix`) VALUES
+INSERT INTO `produit` (`id`, `libelle`, `caracteristique`, `categorie`, `image`, `prix`) VALUES
 (1, 'Truc High-Tech', 'Il sert à rien mais il est cool', 'High-Tech', 'http://lorempixel.com/200/200/technics', 100),
 (2, 'Moto', 'Elle a 2 roues et un guidon', 'Vehicule', 'http://lorempixel.com/200/200/transport', 2999.99),
 (3, 'Chat', 'Très affectueux', 'Animaux de compagnie', 'http://lorempixel.com/200/200/cats', 9.99),
@@ -216,21 +216,21 @@ CREATE TABLE IF NOT EXISTS `facture` (
 --
 
 INSERT INTO `facture` (`id`, `date`, `modepaiement`, `adresselivraison`, `adressefacturation`, `commande_client`) VALUES
-(1, '1970-01-01', 'Par CB', 1, 1, 1),
+(1, '1970-01-01', 'Par CB', 1, 21, 1),
 (2, '1971-01-01', 'Par CB', 2, 2, 2),
 (3, '1972-01-01', 'Par CB', 3, 3, 3),
-(4, '1973-01-01', 'Par CB', 4, 4, 4),
-(5, '1974-01-01', 'Par CB', 5, 5, 5),
-(6, '1975-01-01', 'Par CB', 6, 6, 6),
+(4, '1973-01-01', 'Par CB', 3, 3, 4),
+(5, '1974-01-01', 'Par CB', 4, 4, 5),
+(6, '1975-01-01', 'Par CB', 9, 9, 6),
 (7, '2000-01-01', 'Par CB', 7, 7, 7),
-(8, '2001-01-01', 'Par CB', 8, 8, 8),
-(9, '2002-01-01', 'Par CB', 9, 15, 9),
-(10, '2003-01-01', 'Par CB', 10, 16, 10),
-(11, '2004-01-01', 'Par CB', 11, 17, 11),
-(12, '2005-01-01', 'Par CB', 12, 12, 12),
-(13, '2006-01-01', 'Par CB', 13, 18, 13),
-(14, '2007-01-01', 'Par CB', 14, 19, 14),
-(15, '2008-01-01', 'Par CB', 15, 20, 15);
+(8, '2001-01-01', 'Par CB', 7, 7, 8),
+(9, '2002-01-01', 'Par CB', 9, 9, 9),
+(10, '2003-01-01', 'Par CB', 11, 11, 10),
+(11, '2004-01-01', 'Par CB', 3, 3, 11),
+(12, '2005-01-01', 'Par CB', 13, 13, 12),
+(13, '2006-01-01', 'Par CB', 8, 8, 13),
+(14, '2007-01-01', 'Par CB', 8, 8, 14),
+(15, '2008-01-01', 'Par CB', 15, 24, 15);
 
 -- --------------------------------------------------------
 

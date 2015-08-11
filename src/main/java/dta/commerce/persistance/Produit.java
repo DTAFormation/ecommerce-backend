@@ -7,11 +7,14 @@ import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name="produit")
 @NamedQuery(
 		name="Produit.findAll",
 		query="select p from Produit as p")
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class Produit {
 
 	/** 

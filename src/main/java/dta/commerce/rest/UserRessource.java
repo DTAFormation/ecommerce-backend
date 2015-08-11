@@ -17,7 +17,6 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.ResponseBuilder;
 
 import dta.commerce.ejb.IUserEJB;
-import dta.commerce.persistance.Admin;
 import dta.commerce.persistance.User;
 
 @Path("/user")
