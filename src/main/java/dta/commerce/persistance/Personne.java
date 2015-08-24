@@ -9,7 +9,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name="personne") 
@@ -28,7 +28,7 @@ public class Personne {
 	private String prenom;
 	
 	private String login;
-	
+	@JsonBackReference
 	private String password;
 	
 	
