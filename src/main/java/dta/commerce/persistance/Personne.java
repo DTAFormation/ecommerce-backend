@@ -28,7 +28,7 @@ public class Personne {
 	private String prenom;
 	
 	private String login;
-	@JsonIgnore
+	
 	private String password;
 	
 	
