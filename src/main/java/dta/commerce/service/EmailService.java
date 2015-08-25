@@ -15,6 +15,7 @@ import org.apache.commons.mail.SimpleEmail;
 
 import dta.commerce.persistance.CommandeClient;
 import dta.commerce.persistance.CommandeProduits;
+import dta.commerce.persistance.User;
 
 /**
  * @author ETY
@@ -67,6 +68,10 @@ public class EmailService {
 				format);
 		java.util.Date date = new java.util.Date();
 
+		String courriel = commandeClient.getClient().getLogin();
+		
+		System.out.println(courriel);
+		
 		String emailcp = null;
 		for (CommandeProduits cp : commandeClient.getCommandeProduits()) {
 			emailcp = " Libelle du produit : " + cp.getProduit().getLibelle()
@@ -118,7 +123,7 @@ public class EmailService {
 			// titre du mail
 			email.setSubject("Nouvelle commande sur le site DTAformationAout2015.");
 			email.setMsg(content);
-			email.addTo("foo@yopmail.com");
+			email.addTo(courriel);
 			// email.setBounceAddress("bounce@yopmail.com");
 			email.send();
 		} catch (EmailException | IOException e) {

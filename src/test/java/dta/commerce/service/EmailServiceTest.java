@@ -35,9 +35,13 @@ public class EmailServiceTest {
 		
 		EmailService emailService = new EmailService();
 		
+		String courriel = "testformationdtaaout2015@gmail.com";
+
+		
 		User user = new User();
 		user.setNom("Dupont");
 		user.setPrenom("Michel");
+		user.setLogin(courriel);
 		String etat = "en cours";
 		String libelle = "libelle1";
 		String caracteristique = "caracteristique1";
