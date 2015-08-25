@@ -42,6 +42,8 @@ public class CommandeProduits {
 		Produit = produit;
 		this.commandeClient = commandeClient;
 	}
+	
+	
 
 	/**
 	 * getters & setters

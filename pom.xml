@@ -20,7 +20,7 @@
 				<plugin>
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>3.1</version>
-					<configuration>
+					<configuration> 
 						<source>1.8</source>
 						<target>1.8</target>
 					</configuration>
@@ -128,7 +128,22 @@
 			<version>2.6.1</version>
 		</dependency>
 
-
+		<!-- JavaMail -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.activation</groupId>
+			<artifactId>activation</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-email</artifactId>
+			<version>1.4</version>
+		</dependency>
 	</dependencies>
 
 	<profiles>
