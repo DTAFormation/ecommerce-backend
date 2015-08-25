@@ -75,10 +75,15 @@ Pour lancer le projet sur votre machine, suivez les étapes suivantes :
 
 ## Etape 7
 Créer une adresse Gmail (tout autre messagerie ne fonctionnera pas).
+
 créer un fichier smtp-conf.properties
+
 l'enregistrer dans votre user_home/dtaformation/ (dans dta, c'est ETY [autrement dit, votre dossier user])
+
 le fichier .properties contient les champs :
+
 login = 
+
 password =
 
 Maintenant, vous pouvez de nouveaux travailler
