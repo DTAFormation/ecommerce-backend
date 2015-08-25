@@ -13,6 +13,8 @@ public interface ICommandeEJB {
 	 * Méthods pour les commandes clients
 	 */
 	
+	public List<CommandeClient> listerAllCommandeClient();
+	
 	public List<CommandeClient> listerCommandeClient(Integer idClient);
 	
 	public void deleteCommandeClient(Integer idCommande);

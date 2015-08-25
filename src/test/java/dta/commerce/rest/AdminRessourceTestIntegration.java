@@ -32,7 +32,7 @@ public class AdminRessourceTestIntegration {
 	
 	@Test
 	public void testScenario() {
-		Admin myAdmin1 = new Admin("AdminTest1Nom", "AdminTest1Prenom", "AdminTest1Login", "AdminTest1MotDePase");
+		Admin myAdmin1 = new Admin(true, "AdminTest1Nom", "AdminTest1Prenom", "AdminTest1Login", "AdminTest1MotDePase");
 
 		Admin myAdmin = testAddProduit(myAdmin1);
 		testGetListAdmins();

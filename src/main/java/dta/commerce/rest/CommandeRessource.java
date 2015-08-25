@@ -24,6 +24,16 @@ import dta.commerce.service.EmailService;
 public class CommandeRessource {
 @EJB ICommandeEJB commmandeEjb;
 @EJB IUserEJB	userEJB;
+
+	@GET
+	@Path("/commande")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getAllCommandes(){
+		List<CommandeClient> listCde;
+		listCde = commmandeEjb.listerAllCommandeClient();
+		ResponseBuilder builder = Response.ok(listCde);
+		return builder.build();
+	}
 	
 	@GET
 	@Path("/{idClient}/commandes")

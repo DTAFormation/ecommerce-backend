@@ -27,7 +27,9 @@ public class UserDAO implements IUserDAO {
 	 */
 	@Override
 	public void deleteUser(int idUser) {
-		em.remove(em.find(User.class, idUser));
+		User u = getUser(idUser);
+		u.setActif(false);
+		em.merge(u);
 	}
 
 	/* (non-Javadoc)

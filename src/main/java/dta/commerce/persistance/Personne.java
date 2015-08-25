@@ -9,6 +9,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name="personne") 
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
@@ -21,12 +23,14 @@ public class Personne {
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
+	private boolean actif;
+	
 	private String nom;
 	
 	private String prenom;
 	
 	private String login;
-	
+	@JsonBackReference
 	private String password;
 	
 	
@@ -52,6 +56,14 @@ public class Personne {
 	/**
 	 * Getters & setters
 	 */
+	public boolean getActif() {
+		return actif;
+	}
+	
+	public void setActif(boolean actif) {
+		this.actif = actif;
+	}
+	
 	public Integer getId() {
 		return id;
 	}

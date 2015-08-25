@@ -86,7 +86,7 @@ public class UserRessource {
 			System.out.println(data.getLogin());
 			User user=myEJB.getInfosUser(data.getLogin(), data.getPassword());
 			user.setPassword("");
-			user.setId(null);
+			//user.setId(null);
 			ResponseBuilder builder = Response.ok(user);
 			return builder.build(); 
 		}
