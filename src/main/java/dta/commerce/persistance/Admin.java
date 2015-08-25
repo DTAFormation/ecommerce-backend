@@ -17,9 +17,10 @@ public class Admin extends Personne {
 	public Admin(){
 		
 	}
-	public Admin(String nom, String prenom, String login,
+	public Admin(boolean actif, String nom, String prenom, String login,
 			String password) {
 		super();
+		this.setActif(actif);
 		this.setNom(nom);
 		this.setPrenom(prenom);
 		this.setLogin(login);
