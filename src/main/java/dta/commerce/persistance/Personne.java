@@ -9,6 +9,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name="personne") 
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
@@ -26,7 +28,7 @@ public class Personne {
 	private String prenom;
 	
 	private String login;
-	
+	@JsonBackReference
 	private String password;
 	
 	
