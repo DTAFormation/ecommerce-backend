@@ -262,6 +262,7 @@ CREATE TABLE IF NOT EXISTS `personne` (
   `nom` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `prenom` varchar(255) DEFAULT NULL,
+  `actif` boolean DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -269,27 +270,27 @@ CREATE TABLE IF NOT EXISTS `personne` (
 -- Contenu de la table `personne`
 --
 
-INSERT INTO `personne` (`id`, `nom`, `prenom`, `login`, `password`, `TYPE_PERSONNE`) VALUES
-(1, 'OFFREDO', 'Simon', 'login', 'pwd', 'U'),
-(2, 'GUILLOTEAU', 'Nathan', 'loginDeNathan', 'pwdDeNathan', 'U'),
-(3, 'LEBON', 'Jonathan', 'loginDeJo', 'pwdDeJo', 'U'),
-(4, 'MACHAUX', 'Frederic', 'loginDeFred', 'pwdDeFred', 'U'),
-(5, 'STRATEUR', 'Admini', 'loginAdmin', 'pwdAdmin', 'A'),
-(6, 'ADMINISTRATEUR', 'Un-Autre', 'loginAutreAdmin', 'pwdAutreAdmin', 'A'),
-(7, 'FARAU', 'Romain', 'loginRomain', 'pwdRomain', 'U'),
-(8, 'KLEIN', 'Pauline', 'loginPauline', 'pwdPauline', 'U'),
-(9, 'USER1', 'User1', 'loginUser1', 'pwdUser1', 'U'),
-(10, 'USER2', 'User2', 'loginUser2', 'pwdUser2', 'U'),
-(11, 'USER3', 'User3', 'loginUser3', 'pwdUser3', 'U'),
-(12, 'USER4', 'User4', 'loginUser4', 'pwdUser4', 'U'),
-(13, 'USER5', 'User5', 'loginUser5', 'pwdUser5', 'U'),
-(14, 'USER6', 'User6', 'loginUser6', 'pwdUser6', 'U'),
-(15, 'USER7', 'User7', 'loginUser7', 'pwdUser7', 'U'),
-(16, 'USER8', 'User8', 'loginUser8', 'pwdUser8', 'U'),
-(17, 'USER9', 'User9', 'loginUser9', 'pwdUser9', 'U'),
-(18, 'USER10', 'User10', 'loginUser10', 'pwdUser10', 'U'),
-(19, 'USER11', 'User11', 'loginUser11', 'pwdUser11', 'U'),
-(20, 'USER12', 'User12', 'loginUser12', 'pwdUser12', 'U');
+INSERT INTO `personne` (`id`, `actif`, `nom`, `prenom`, `login`, `password`, `TYPE_PERSONNE`) VALUES
+(1, true, 'OFFREDO', 'Simon', 'login', 'pwd', 'U'),
+(2, true, 'GUILLOTEAU', 'Nathan', 'loginDeNathan', 'pwdDeNathan', 'U'),
+(3, true, 'LEBON', 'Jonathan', 'loginDeJo', 'pwdDeJo', 'U'),
+(4, true, 'MACHAUX', 'Frederic', 'loginDeFred', 'pwdDeFred', 'U'),
+(5, true, 'STRATEUR', 'Admini', 'loginAdmin', 'pwdAdmin', 'A'),
+(6, true, 'ADMINISTRATEUR', 'Un-Autre', 'loginAutreAdmin', 'pwdAutreAdmin', 'A'),
+(7, true, 'FARAU', 'Romain', 'loginRomain', 'pwdRomain', 'U'),
+(8, true, 'KLEIN', 'Pauline', 'loginPauline', 'pwdPauline', 'U'),
+(9, true, 'USER1', 'User1', 'loginUser1', 'pwdUser1', 'U'),
+(10, true, 'USER2', 'User2', 'loginUser2', 'pwdUser2', 'U'),
+(11, true, 'USER3', 'User3', 'loginUser3', 'pwdUser3', 'U'),
+(12, true, 'USER4', 'User4', 'loginUser4', 'pwdUser4', 'U'),
+(13, true, 'USER5', 'User5', 'loginUser5', 'pwdUser5', 'U'),
+(14, true, 'USER6', 'User6', 'loginUser6', 'pwdUser6', 'U'),
+(15, true, 'USER7', 'User7', 'loginUser7', 'pwdUser7', 'U'),
+(16, true, 'USER8', 'User8', 'loginUser8', 'pwdUser8', 'U'),
+(17, true, 'USER9', 'User9', 'loginUser9', 'pwdUser9', 'U'),
+(18, true, 'USER10', 'User10', 'loginUser10', 'pwdUser10', 'U'),
+(19, true, 'USER11', 'User11', 'loginUser11', 'pwdUser11', 'U'),
+(20, true, 'USER12', 'User12', 'loginUser12', 'pwdUser12', 'U');
 
 -- --------------------------------------------------------
 
