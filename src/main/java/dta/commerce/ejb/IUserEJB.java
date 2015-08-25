@@ -2,6 +2,7 @@ package dta.commerce.ejb;
 
 import java.util.List;
 
+import dta.commerce.persistance.Adresse;
 import dta.commerce.persistance.User;
 
 public interface IUserEJB {
@@ -17,5 +18,7 @@ public interface IUserEJB {
 	public abstract User getUser(Integer user);
 
 	public abstract User getInfosUser(String pLogin, String pMdp);
+	
+	public void addAdressesUser(List<Adresse> adresses);
 
 }

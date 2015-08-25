@@ -18,6 +18,7 @@ import javax.ws.rs.core.Response.ResponseBuilder;
 
 import dta.commerce.ejb.IUserEJB;
 import dta.commerce.persistance.Admin;
+import dta.commerce.persistance.Adresse;
 import dta.commerce.persistance.User;
 
 @Path("/user")
@@ -108,7 +109,18 @@ public class UserRessource {
 			return builderOK.build();
 			
 		}
-	
-		
 
+		// ****** AJOUTER NOUVELLES ADRESSES DANS UN USER ******
+		@POST
+		@Path("/{id}/adresses/")
+		@Produces(MediaType.APPLICATION_JSON)
+		@Consumes(MediaType.APPLICATION_JSON)
+		public Response addAdresses(List<Adresse> adresses){
+			myEJB.addAdressesUser(adresses);
+			ResponseBuilder builder = Response.ok();
+			builder.status(201);
+			return builder.build(); 
+		}
+		
+		
 }

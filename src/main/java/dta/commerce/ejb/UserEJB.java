@@ -10,7 +10,9 @@ import javax.inject.Inject;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
+import dta.commerce.dao.IAdressesDAO;
 import dta.commerce.dao.IUserDAO;
+import dta.commerce.persistance.Adresse;
 import dta.commerce.persistance.Personne;
 import dta.commerce.persistance.User;
 
@@ -21,6 +23,7 @@ public class UserEJB implements IUserEJB  {
 	
 
 	@Inject private IUserDAO userDao;
+	@Inject private IAdressesDAO adresseDao;
 	
 	/* (non-Javadoc)
 	 * @see dta.commerce.ejb.IUserEJB#listerUser()
@@ -98,5 +101,11 @@ public class UserEJB implements IUserEJB  {
 	public User getInfosUser(String pLogin, String pMdp){
 		return userDao.getInfosUser(pLogin, pMdp);
 	}
-	
+
+	@Override
+	public void addAdressesUser(List<Adresse> adresses) {
+		for (Adresse adresse : adresses) {
+			adresseDao.addAdresse(adresse);
+		}
+	}	
 }
