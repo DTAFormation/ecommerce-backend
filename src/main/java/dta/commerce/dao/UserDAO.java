@@ -2,13 +2,11 @@ package dta.commerce.dao;
 
 import java.util.List;
 
-import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
-import dta.commerce.persistance.Personne;
 import dta.commerce.persistance.User;
 
 public class UserDAO implements IUserDAO {

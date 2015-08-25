@@ -27,7 +27,7 @@ public class Produit {
 	private String categorie;
 	private String image;
 	private Float prix;
-	
+
 	/**
 	 * Constructeurs
 	 */
@@ -41,9 +41,11 @@ public class Produit {
 		this.prix = prix;
 	}
 	public Produit(){
-		
+
 	}
+
 	
+
 	/**
 	 * Getters & setters
 	 */
