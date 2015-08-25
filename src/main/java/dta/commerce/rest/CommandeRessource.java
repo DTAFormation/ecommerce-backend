@@ -36,6 +36,19 @@ public class CommandeRessource {
 	}
 	
 	@GET
+	@Path("/commande/{idCommande}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getCommandeById(@PathParam("idCommande") Integer idCommande){
+		
+		ResponseBuilder builder= Response.ok("");
+		CommandeClient commandeCli;
+		commandeCli = commmandeEjb.editCommandClient(idCommande);
+		builder.status(200);
+		builder = Response.ok(commandeCli);
+		return builder.build();
+	}	
+	
+	@GET
 	@Path("/{idClient}/commandes")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getClientCommandes(@PathParam("idClient") Integer idClient) {
