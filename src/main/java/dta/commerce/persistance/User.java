@@ -35,18 +35,20 @@ public class User extends Personne {
 	/**
 	 * Constructeurs
 	 */
-	public User(String nom, String prenom, String login,
+	public User(boolean actif, String nom, String prenom, String login,
 			String password, List<Adresse> adresses) {
 		super();
+		this.setActif(actif);
 		this.setNom(nom);
 		this.setPrenom(prenom);
 		this.setLogin(login);
 		this.setPassword(password);
 		this.setAdresses(adresses);
 	}
-	public User(String nom, String prenom, String login,
+	public User(boolean actif, String nom, String prenom, String login,
 			String password) {
 		super();
+		this.setActif(actif);
 		this.setNom(nom);
 		this.setPrenom(prenom);
 		this.setLogin(login);

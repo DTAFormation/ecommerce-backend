@@ -23,6 +23,8 @@ public class Personne {
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
+	private boolean actif;
+	
 	private String nom;
 	
 	private String prenom;
@@ -42,6 +44,14 @@ public class Personne {
 	/**
 	 * Getters & setters
 	 */
+	public boolean getActif() {
+		return actif;
+	}
+	
+	public void setActif(boolean actif) {
+		this.actif = actif;
+	}
+	
 	public Integer getId() {
 		return id;
 	}

@@ -35,6 +35,10 @@ public class CommandeEJB implements ICommandeEJB{
 	public void updateCommandeClient(CommandeClient commandeClient) {
 		commandeDao.updateCommandeClient(commandeClient);
 	}
+	
+	public List<CommandeClient> listerAllCommandeClient(){
+		return commandeDao.listerAllCommandeClient();
+	}
 
 	@Override
 	public List<CommandeClient> listerCommandeClient(Integer idClient) {

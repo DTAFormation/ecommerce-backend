@@ -33,6 +33,14 @@ public class CommandeDAO implements ICommandeDAO{
 	}
 	
 	@Override
+	public List<CommandeClient> listerAllCommandeClient(){
+		
+		TypedQuery<CommandeClient> selectQuery = em.createQuery("select cde FROM CommandeClient as cde", CommandeClient.class);
+		
+		return (List<CommandeClient>)selectQuery.getResultList();
+	}
+	
+	@Override
 	public List<CommandeClient> listerCommandeClient(Integer idClient) {
 		
 		TypedQuery<CommandeClient> selectQuery = em.createQuery("select cde FROM CommandeClient as cde where cde.client.id = :x",CommandeClient.class);

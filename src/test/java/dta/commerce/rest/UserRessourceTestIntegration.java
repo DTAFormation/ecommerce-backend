@@ -32,7 +32,7 @@ public class UserRessourceTestIntegration {
 	
 	@Test
 	public void testScenario() {
-		User myUser1 = new User("UserTest1Nom", "UserTest1Prenom", "UserTest1Login", "UserTest1MotDePase");
+		User myUser1 = new User(true, "UserTest1Nom", "UserTest1Prenom", "UserTest1Login", "UserTest1MotDePase");
 
 		User myUser = testAddProduit(myUser1);
 		testGetListUsers();

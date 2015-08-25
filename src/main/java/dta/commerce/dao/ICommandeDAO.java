@@ -16,6 +16,8 @@ public interface ICommandeDAO {
 	public void deleteCommandeClient(CommandeClient commandeClient);
 
 	public void updateCommandeClient(CommandeClient commandeClient);
+	
+	public List<CommandeClient> listerAllCommandeClient();
 
 	public List<CommandeClient> listerCommandeClient(Integer idClient);
 
