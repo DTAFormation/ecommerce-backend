@@ -29,15 +29,12 @@ public class Facture {
 	private String modepaiement;
 	
 	@ManyToOne
-	@JsonManagedReference
 	private Adresse adresselivraison;
 	
 	@ManyToOne
-	@JsonManagedReference
 	private Adresse adressefacturation;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JsonManagedReference
 	private CommandeClient commandeClient;
 
 	
