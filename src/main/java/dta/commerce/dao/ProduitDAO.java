@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import dta.commerce.persistance.Produit;
+import dta.commerce.persistance.User;
 
 public class ProduitDAO implements IProduitDAO {
 	
@@ -25,6 +26,9 @@ public class ProduitDAO implements IProduitDAO {
 	@Override
 	public void deleteProduit(int idProduit) {
 		em.remove(em.find(Produit.class, idProduit));
+		Produit p = getProduit(idProduit);
+		p.setActif(false);
+		em.merge(p);
 		
 	}
 

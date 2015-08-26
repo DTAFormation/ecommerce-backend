@@ -27,6 +27,7 @@ public class Produit {
 	private String categorie;
 	private String image;
 	private Float prix;
+	private boolean actif;
 
 	/**
 	 * Constructeurs
@@ -84,5 +85,11 @@ public class Produit {
 	}
 	public void setPrix(Float prix) {
 		this.prix = prix;
+	}
+	public boolean isActif() {
+		return actif;
+	}
+	public void setActif(boolean actif) {
+		this.actif = actif;
 	}
 }
