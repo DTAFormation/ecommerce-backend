@@ -20,7 +20,7 @@ public class ProduitRessourceTestIntegration {
 	private WebTarget target;
 	
 	public Produit mockProduit() {
-		Produit p = new Produit("mockProduit", "mockCaracteristique", "mockCategorie", "mockImage", 0.0F);
+		Produit p = new Produit("mockProduit", "mockCaracteristique", "mockCategorie", "mockImage", 0.0F, true);
 		return p;
 	}
 	

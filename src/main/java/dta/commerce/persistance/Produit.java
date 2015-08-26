@@ -33,13 +33,14 @@ public class Produit {
 	 * Constructeurs
 	 */
 	public Produit(String libelle, String caracteristique, String categorie,
-			String image, Float prix) {
+			String image, Float prix, boolean actif) {
 		super();
 		this.libelle = libelle;
 		this.caracteristique = caracteristique;
 		this.categorie = categorie;
 		this.image = image;
 		this.prix = prix;
+		this.actif=actif;
 	}
 	public Produit(){
 

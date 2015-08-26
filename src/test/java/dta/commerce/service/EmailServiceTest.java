@@ -48,7 +48,7 @@ public class EmailServiceTest {
 		String categorie = "categorie1";
 		String image = "";
 		Float prix = (float) 2;
-		Produit produit = new Produit(libelle, caracteristique, categorie, image, prix);
+		Produit produit = new Produit(libelle, caracteristique, categorie, image, prix, true);
 		
 		CommandeClient commandeClient = new CommandeClient(user, etat);
 		CommandeProduits commandeProduits = new CommandeProduits(produit, commandeClient);
