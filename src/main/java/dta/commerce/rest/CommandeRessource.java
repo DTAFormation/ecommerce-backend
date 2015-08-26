@@ -20,13 +20,11 @@ import dta.commerce.ejb.IUserEJB;
 import dta.commerce.persistance.CommandeClient;
 import dta.commerce.service.EmailService;
 
-@Path("/user")
+@Path("/commande")
 public class CommandeRessource {
 @EJB ICommandeEJB commmandeEjb;
-@EJB IUserEJB	userEJB;
 
 	@GET
-	@Path("/commande")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getAllCommandes(){
 		List<CommandeClient> listCde;
@@ -36,7 +34,7 @@ public class CommandeRessource {
 	}
 	
 	@GET
-	@Path("/commande/{idCommande}")
+	@Path("/{idCommande}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getCommandeById(@PathParam("idCommande") Integer idCommande){
 		
@@ -51,68 +49,4 @@ public class CommandeRessource {
 		builder = Response.ok(commandeCli);
 		return builder.build();
 	}	
-	
-	@GET
-	@Path("/{idClient}/commandes")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response getClientCommandes(@PathParam("idClient") Integer idClient) {
-		
-		List<CommandeClient> listCde;
-		listCde = commmandeEjb.listerCommandeClient(idClient);
-		ResponseBuilder builder= Response.ok(listCde);
-		return builder.build(); 
-	}
-	
-	@GET
-	@Path("/{idClient}/commande/{idCommande}")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response getCommandbyID(@PathParam("idClient") Integer idClient, @PathParam("idCommande") Integer idCommande) {
-		
-		ResponseBuilder builder= Response.ok("");
-		CommandeClient commandeCli;
-		commandeCli = commmandeEjb.editCommandClient(idCommande);
-		builder.status(200);
-		builder = Response.ok(commandeCli);
-		return builder.build();
-	}
-	
-	@POST
-	@Path("/{idClient}/commande")
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response createCommand(@PathParam("idClient") Integer idClient, CommandeClient commandeClient) {
-			
-		EmailService emailservice = new EmailService();
-		System.out.println("création de la commande");
-		commandeClient.setClient(userEJB.getUser(idClient));
-		commmandeEjb.updateCommandeClient(commandeClient);
-		emailservice.envoiEmailSmtp(commandeClient);
-		return Response.status(Response.Status.CREATED).entity(commandeClient).build();
-	}
-	
-	@PUT
-	@Path("/{idClient}/commande")
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response updateCommande(@PathParam("idClient") Integer idClient, CommandeClient commandeClient) {
-		
-		System.out.println("mise à jour de la commande du client " + idClient);
-		commmandeEjb.updateCommandeClient(commandeClient);
-
-		return Response.status(Response.Status.CREATED).entity(commandeClient).build();
-	}
-	
-	@DELETE
-	@Path("/{idClient}/commande/{idCommande}")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response deleteCommandbyID(@PathParam("idClient") Integer idClient, @PathParam("idCommande") Integer idCommande ) {
-		
-		ResponseBuilder builder= Response.ok("");
-		
-		System.out.println("suppression de la commande du client " + idClient);
-		commmandeEjb.deleteCommandeClient(idCommande);
-		builder.status(200);
-
-		return builder.build();
-	}
 }

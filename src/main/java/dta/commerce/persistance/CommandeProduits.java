@@ -20,12 +20,12 @@ public class CommandeProduits {
 	@Id @GeneratedValue
 	private Integer id;
 	
-	@ManyToOne(targetEntity=Produit.class, cascade=CascadeType.ALL)
-	@JsonManagedReference
+	@ManyToOne(targetEntity=Produit.class)
+	
 	private Produit Produit;
 	
 	@ManyToOne
-	@JsonBackReference
+	
 	private CommandeClient commandeClient;
 	
 	// quantité lié à chaque item de la liste 
