@@ -29,7 +29,7 @@ public class CommandeClient {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 	
-	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@ManyToOne(fetch=FetchType.EAGER)
 	private User client;
 
 	@OneToMany(mappedBy="commandeClient", cascade=CascadeType.ALL, fetch=FetchType.EAGER)

@@ -30,7 +30,7 @@ public class Personne {
 	private String prenom;
 	
 	private String login;
-	@JsonBackReference
+	@JsonBackReference("PWD")
 	private String password;
 	
 	

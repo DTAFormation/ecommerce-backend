@@ -29,7 +29,7 @@ public class Adresse {
 	
 	
 	@ManyToOne
-	@JsonBackReference
+	@JsonIgnore
 	private User client;
 	
 
