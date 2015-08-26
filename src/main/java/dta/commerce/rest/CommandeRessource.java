@@ -43,6 +43,10 @@ public class CommandeRessource {
 		ResponseBuilder builder= Response.ok("");
 		CommandeClient commandeCli;
 		commandeCli = commmandeEjb.editCommandClient(idCommande);
+		if (commandeCli == null) {
+			builder.status(404);
+			return builder.build();
+		}
 		builder.status(200);
 		builder = Response.ok(commandeCli);
 		return builder.build();
