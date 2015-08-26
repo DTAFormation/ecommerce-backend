@@ -135,21 +135,21 @@ CREATE TABLE IF NOT EXISTS `commande_client` (
 --
 
 INSERT INTO `commande_client` (`id`, `etat`, `client`, `facture`) VALUES
-  (1, "Terminée", 1, 1),
-  (2, "Terminée", 2, 2),
-  (3, "Terminée", 3, 3),
-  (4, "En cours", 3, 4),
-  (5, "En cours", 4, 5),
-  (6, "Terminée", 9, 6),
-  (7, "Terminée", 7, 7),
-  (8, "Annulée", 7, 8),
-  (9, "Terminée", 9, 9),
-  (10, "Terminée", 11, 10),
-  (11, "Terminée", 3, 11),
-  (12, "Terminée", 13, 12),
-  (13, "Terminée", 8, 13),
-  (14, "En cours", 8, 14),
-  (15, "En cours", 15, 15);
+  (1, "TR", 1, 1),
+  (2, "TR", 2, 2),
+  (3, "TR", 3, 3),
+  (4, "EC", 3, 4),
+  (5, "EC", 4, 5),
+  (6, "TR", 9, 6),
+  (7, "TR", 7, 7),
+  (8, "AN", 7, 8),
+  (9, "TR", 9, 9),
+  (10, "TR", 11, 10),
+  (11, "TR", 3, 11),
+  (12, "TR", 13, 12),
+  (13, "TR", 8, 13),
+  (14, "EC", 8, 14),
+  (15, "EC", 15, 15);
 
 -- --------------------------------------------------------
 
