@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -29,15 +30,15 @@ public class Facture {
 	private String modepaiement;
 	
 	@ManyToOne
-	@JsonManagedReference
+	@JsonBackReference
 	private Adresse adresselivraison;
 	
 	@ManyToOne
-	@JsonManagedReference
+	@JsonBackReference
 	private Adresse adressefacturation;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JsonManagedReference
+	@JsonBackReference
 	private CommandeClient commandeClient;
 
 	
