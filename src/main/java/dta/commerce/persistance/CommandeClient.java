@@ -15,10 +15,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name="commandeClient") 
@@ -36,11 +33,9 @@ public class CommandeClient {
 	private User client;
 
 	@OneToMany(mappedBy="commandeClient", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JsonManagedReference
 	private List<CommandeProduits> commandeProduits = new ArrayList<CommandeProduits>();
 
-	@OneToOne
-	@JsonIgnore
+	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private Facture facture;
 	
 	private String etat;

@@ -7,8 +7,10 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name="commandeProduits") 
@@ -19,11 +21,11 @@ public class CommandeProduits {
 	private Integer id;
 	
 	@ManyToOne(targetEntity=Produit.class, cascade=CascadeType.ALL)
-	@JsonIgnore
+	@JsonManagedReference
 	private Produit Produit;
 	
 	@ManyToOne
-	@JsonIgnore
+	@JsonBackReference
 	private CommandeClient commandeClient;
 	
 	// quantité lié à chaque item de la liste 

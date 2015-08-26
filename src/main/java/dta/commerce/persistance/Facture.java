@@ -2,16 +2,14 @@ package dta.commerce.persistance;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name="facture") 
@@ -28,19 +26,13 @@ public class Facture {
 	
 	private String modepaiement;
 	
-	@ManyToOne
+	@OneToOne
 	@JsonIgnore
 	private Adresse adresselivraison;
 	
-	@ManyToOne
+	@OneToOne
 	@JsonIgnore
 	private Adresse adressefacturation;
-	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JsonIgnore
-	private CommandeClient commandeClient;
-
-	
 	
 	/**
 	 * Constructeurs
@@ -53,7 +45,6 @@ public class Facture {
 		this.modepaiement = modepaiement;
 		this.adresselivraison = adresseLivraison;
 		this.adressefacturation = adresseFacturation;
-		this.commandeClient = commandeClient;
 	}
 	public Facture(){
 		
@@ -92,12 +83,6 @@ public class Facture {
 	}
 	public void setAdresseFacturation(Adresse adresseFacturation) {
 		this.adressefacturation = adresseFacturation;
-	}
-	public CommandeClient getCommande() {
-		return commandeClient;
-	}
-	public void setCommande(CommandeClient commandeClient) {
-		this.commandeClient = commandeClient;
 	}
 
 }

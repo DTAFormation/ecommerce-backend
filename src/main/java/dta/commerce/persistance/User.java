@@ -12,7 +12,9 @@ import javax.persistence.MapKey;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @NamedQuery(
@@ -26,9 +28,10 @@ public class User extends Personne {
 	 */
 	@OneToMany(mappedBy="client", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
 	@MapKey(name="id")
+	@JsonManagedReference
 	private List<Adresse> adresses = new ArrayList<Adresse>();
 	
-	@OneToMany(mappedBy = "client", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "client", fetch=FetchType.LAZY)
 	@JsonIgnore
 	private List<CommandeClient> listCommandes = new ArrayList<CommandeClient>();
 	
