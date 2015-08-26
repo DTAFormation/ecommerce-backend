@@ -40,7 +40,7 @@ public class CommandeClient {
 	private List<CommandeProduits> commandeProduits = new ArrayList<CommandeProduits>();
 
 	@OneToOne
-	@JsonIgnore
+	@JsonManagedReference
 	private Facture facture;
 	
 	private String etat;
