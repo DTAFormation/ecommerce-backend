@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name="facture") 
@@ -28,15 +29,15 @@ public class Facture {
 	private String modepaiement;
 	
 	@ManyToOne
-	@JsonIgnore
+	@JsonManagedReference
 	private Adresse adresselivraison;
 	
 	@ManyToOne
-	@JsonIgnore
+	@JsonManagedReference
 	private Adresse adressefacturation;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JsonIgnore
+	@JsonManagedReference
 	private CommandeClient commandeClient;
 
 	
