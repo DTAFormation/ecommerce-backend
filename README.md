@@ -74,18 +74,15 @@ Pour lancer le projet sur votre machine, suivez les étapes suivantes :
 ## Etape 6 : Redémarrer une dernière fois le serveur wildfly
 
 ## Etape 7
-Créer une adresse Gmail (tout autre messagerie ne fonctionnera pas).
+* Créer une adresse Gmail (tout autre messagerie ne fonctionnera pas).
+* Créer un fichier `smtp-conf.properties`
+* L'enregistrer dans votre `{user_home}/dtaformation/` (Sous Windows formation dta, c'est `C:\User\ETY`)
+* Le fichier `.properties` contient les champs :
 
-créer un fichier smtp-conf.properties
-
-l'enregistrer dans votre user_home/dtaformation/ (dans dta, c'est ETY [autrement dit, votre dossier user])
-
-le fichier .properties contient les champs :
-
+```
 login = 
-
 password =
-
-Maintenant, vous pouvez de nouveaux travailler
+```
+Maintenant, vous pouvez de nouveau travailler
 
 
