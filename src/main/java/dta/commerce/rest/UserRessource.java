@@ -156,8 +156,10 @@ public class UserRessource {
 		@Produces(MediaType.APPLICATION_JSON)
 		public Response createCommand(@PathParam("idClient") Integer idClient, CommandeClient commandeClient) {
 				
-			System.out.println("création de la commande");
 			commandeClient.setClient(myEJB.getUser(idClient));
+			// Commande en cours à la création
+			commandeClient.setEtat("EC");
+			
 			commmandeEjb.createCommandeClient(commandeClient);
 			email.envoiEmailSmtp(commandeClient);
 			return Response.status(Response.Status.CREATED).entity(commandeClient).build();
