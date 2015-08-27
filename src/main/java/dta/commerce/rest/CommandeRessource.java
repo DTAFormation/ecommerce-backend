@@ -18,17 +18,26 @@ import javax.ws.rs.core.Response.ResponseBuilder;
 import dta.commerce.ejb.ICommandeEJB;
 import dta.commerce.ejb.IUserEJB;
 import dta.commerce.persistance.CommandeClient;
+import dta.commerce.persistance.Produit;
 import dta.commerce.service.EmailService;
 
 @Path("/commande")
 public class CommandeRessource {
-@EJB ICommandeEJB commmandeEjb;
+@EJB ICommandeEJB commandeEjb;
+
+	@PUT
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response updateCommande(CommandeClient cmdClient) {
+		commandeEjb.updateCommandeClient(cmdClient);
+		return Response.status(Response.Status.OK).build();
+	}
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getAllCommandes(){
 		List<CommandeClient> listCde;
-		listCde = commmandeEjb.listerAllCommandeClient();
+		listCde = commandeEjb.listerAllCommandeClient();
 		ResponseBuilder builder = Response.ok(listCde);
 		return builder.build();
 	}
@@ -40,7 +49,7 @@ public class CommandeRessource {
 		
 		ResponseBuilder builder= Response.ok("");
 		CommandeClient commandeCli;
-		commandeCli = commmandeEjb.editCommandClient(idCommande);
+		commandeCli = commandeEjb.editCommandClient(idCommande);
 		if (commandeCli == null) {
 			builder.status(404);
 			return builder.build();
