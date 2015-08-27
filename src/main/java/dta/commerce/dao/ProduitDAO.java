@@ -25,7 +25,7 @@ public class ProduitDAO implements IProduitDAO {
 
 	@Override
 	public void deleteProduit(int idProduit) {
-		em.remove(em.find(Produit.class, idProduit));
+		//em.remove(em.find(Produit.class, idProduit));
 		Produit p = getProduit(idProduit);
 		p.setActif(false);
 		em.merge(p);
