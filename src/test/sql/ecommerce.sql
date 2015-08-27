@@ -114,7 +114,8 @@ INSERT INTO `produit` (`id`, `libelle`, `caracteristique`, `categorie`, `image`,
 (13, 'Chat', 'Très affectueux', 'Animaux de compagnie', 'http://lorempixel.com/200/200/cats/2', 9.99, true),
 (14, 'Kebab', 'Viande de qualité, frites de qualité', 'Alimentation', 'http://lorempixel.com/200/200/food/2', 9.99, true),
 (15, 'Batte de baseball', 'A peu servi', 'Sports', 'http://lorempixel.com/200/200/sports/2', 99.99, true),
-(16, 'Chat Psychedelique, 'Très agressif pout les yeux', 'Animaux de compagnie', 'http://i2.wp.com/h16free.com/wp-content/uploads/2015/05/psychedelic-cat.gif', 9999.99, true);
+(16, 'Chat Psychedelique', 'Très agressif pout les yeux', 'Animaux de compagnie', 'http://i2.wp.com/h16free.com/wp-content/uploads/2015/05/psychedelic-cat.gif', 9999.99, true),
+(16, 'nyan cat vegeta', 'ne pas manger', 'Animaux de compagnie', 'http://img2.wikia.nocookie.net/__cb20121227151943/dragonball/images/e/e2/Vegeta_nyan_cat.gif', 0.99, true);
 
 -- --------------------------------------------------------
 
