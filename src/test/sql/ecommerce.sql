@@ -125,9 +125,9 @@ INSERT INTO `produit` (`id`, `libelle`, `caracteristique`, `categorie`, `image`,
 
 CREATE TABLE IF NOT EXISTS `commande_client` (
   `id` int(11) NOT NULL,
-  `etat` varchar(255) DEFAULT NULL,
-  `client` int(11) DEFAULT NULL,
-  `facture` int(11) DEFAULT NULL,
+  `etat` varchar(255) NOT NULL,
+  `client` int(11) NOT NULL,
+  `facture` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_t4g3urlfvjrlqv7dyqtb6yexp` (`client`),
   KEY `FK_i4bkwbbi77x1bxrf0pnxdjbmm` (`facture`)
