@@ -25,7 +25,7 @@ public class CommandeProduits {
 	private Produit Produit;
 	
 	@ManyToOne
-	
+	@JsonIgnore
 	private CommandeClient commandeClient;
 	
 	// quantité lié à chaque item de la liste 
