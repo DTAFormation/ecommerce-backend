@@ -18,16 +18,16 @@ import javax.ws.rs.core.Response.ResponseBuilder;
 
 import dta.commerce.ejb.ICommandeEJB;
 import dta.commerce.ejb.IUserEJB;
-import dta.commerce.persistance.Admin;
 import dta.commerce.persistance.Adresse;
 import dta.commerce.persistance.CommandeClient;
 import dta.commerce.persistance.User;
-import dta.commerce.service.EmailService;
+import dta.commerce.service.IEmailService;
 
 @Path("/user")
 public class UserRessource {
 	@EJB IUserEJB myEJB;
 	@EJB ICommandeEJB commmandeEjb;
+	@EJB IEmailService email;
 	
 	// ****** AJOUTER USER ******
 	@POST
@@ -156,11 +156,10 @@ public class UserRessource {
 		@Produces(MediaType.APPLICATION_JSON)
 		public Response createCommand(@PathParam("idClient") Integer idClient, CommandeClient commandeClient) {
 				
-			EmailService emailservice = new EmailService();
 			System.out.println("création de la commande");
 			commandeClient.setClient(myEJB.getUser(idClient));
 			commmandeEjb.updateCommandeClient(commandeClient);
-			emailservice.envoiEmailSmtp(commandeClient);
+			email.envoiEmailSmtp(commandeClient);
 			return Response.status(Response.Status.CREATED).entity(commandeClient).build();
 		}
 		

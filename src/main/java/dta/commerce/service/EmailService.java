@@ -8,6 +8,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
+import javax.ejb.Stateless;
+import javax.ejb.TransactionManagement;
+import javax.ejb.TransactionManagementType;
+
 import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.Email;
 import org.apache.commons.mail.EmailException;
@@ -15,13 +19,14 @@ import org.apache.commons.mail.SimpleEmail;
 
 import dta.commerce.persistance.CommandeClient;
 import dta.commerce.persistance.CommandeProduits;
-import dta.commerce.persistance.User;
 
 /**
  * @author ETY
  *
  */
-public class EmailService {
+@Stateless
+@TransactionManagement(value=TransactionManagementType.CONTAINER)
+public class EmailService implements IEmailService {
 
 	/**
 	 * 
@@ -37,8 +42,9 @@ public class EmailService {
 	 * @throws IOException
 	 * @throws FileNotFoundException
 	 */
-	public Properties load(String filename) throws IOException,
+	private Properties load(String filename) throws IOException,
 			FileNotFoundException {
+		
 		Properties properties = new Properties();
 
 		FileInputStream input = new FileInputStream(filename);
@@ -72,27 +78,22 @@ public class EmailService {
 		
 		System.out.println(courriel);
 		
-		String emailcp = null;
+		String emailcp = "";
 		for (CommandeProduits cp : commandeClient.getCommandeProduits()) {
-			emailcp = " Libelle du produit : " + cp.getProduit().getLibelle()
+			emailcp += "\n Libelle du produit : " + cp.getProduit().getLibelle()
 					+ "\n" + " appartenant à la catégorie :"
 					+ cp.getProduit().getCategorie() + "\n"
 					+ " avec les caractéristiques : "
 					+ cp.getProduit().getCaracteristique() + "\n"
-					+ " coûtant :" + cp.getProduit().getPrix();
+					+ " coûtant :" + cp.getProduit().getPrix() + "\n";
 		}
 
 		String content = "Bonjour m./mme "
 				+ commandeClient.getClient().getNom() + " "
 				+ commandeClient.getClient().getPrenom() + ", \n\n"
 				+ "Votre commande faite le " + formater.format(date)
-				+ " contenant le(s) produit(s) : \n" + emailcp /*
-																 * +
-																 * commandeClient
-																 * . getFacture
-																 * ()
-																 */
-				+ " a bien été prise en compte. \n\n"
+				+ " contenant le(s) produit(s) : \n" + emailcp 
+				+ "\n a bien été prise en compte. \n\n"
 				+ "L'équipe DTAformation2 vous remercie.";
 
 		System.out.println(content);
