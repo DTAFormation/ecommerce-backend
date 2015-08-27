@@ -8,6 +8,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
+import javax.ejb.Stateless;
+import javax.ejb.TransactionManagement;
+import javax.ejb.TransactionManagementType;
+
 import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.Email;
 import org.apache.commons.mail.EmailException;
@@ -20,7 +24,9 @@ import dta.commerce.persistance.CommandeProduits;
  * @author ETY
  *
  */
-public class EmailService {
+@Stateless
+@TransactionManagement(value=TransactionManagementType.CONTAINER)
+public class EmailService implements IEmailService {
 
 	/**
 	 * 
