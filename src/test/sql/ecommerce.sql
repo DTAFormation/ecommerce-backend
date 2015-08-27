@@ -294,7 +294,8 @@ INSERT INTO `personne` (`id`, `actif`, `nom`, `prenom`, `login`, `password`, `TY
 (18, true, 'USER10', 'User10', 'loginUser10', 'pwdUser10', 'U'),
 (19, true, 'USER11', 'User11', 'loginUser11', 'pwdUser11', 'U'),
 (20, true, 'USER12', 'User12', 'loginUser12', 'pwdUser12', 'U'),
-(21, true, 'aaa', 'bbb', 'aaa@yopmail.com', 'c1c2c3', 'U);'
+(21, true, 'aaa', 'bbb', 'aaa@yopmail.com', 'c1c2c3', 'U'),
+(22, true, 'admin', 'istrateur', 'admin@yopmail.com', 'c1c2c3', 'A');
 
 -- --------------------------------------------------------
 
