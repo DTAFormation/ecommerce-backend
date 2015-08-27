@@ -104,16 +104,17 @@ INSERT INTO `produit` (`id`, `libelle`, `caracteristique`, `categorie`, `image`,
 (3, 'Chat', 'Très affectueux', 'Animaux de compagnie', 'http://lorempixel.com/200/200/cats', 9.99, true),
 (4, 'Kebab', 'Viande de qualité, frites de qualité', 'Alimentation', 'http://lorempixel.com/200/200/food', 9.99, true),
 (5, 'Batte de baseball', 'A peu servi', 'Sports', 'http://lorempixel.com/200/200/sports', 99.99, true),
-(6, 'Truc High-Tech', 'Il sert à rien mais il est cool', 'High-Tech', 'http://lorempixel.com/200/200/technics', 100, true),
-(7, 'Moto', 'Elle a 2 roues et un guidon', 'Vehicule', 'http://lorempixel.com/200/200/transport', 2999.99, true),
-(8, 'Chat', 'Très affectueux', 'Animaux de compagnie', 'http://lorempixel.com/200/200/cats', 9.99, true),
-(9, 'Kebab', 'Viande de qualité, frites de qualité', 'Alimentation', 'http://lorempixel.com/200/200/food', 9.99, true),
-(10, 'Batte de baseball', 'A peu servi', 'Sports', 'http://lorempixel.com/200/200/sports', 99.99, true),
-(11, 'Truc High-Tech', 'Il sert à rien mais il est cool', 'High-Tech', 'http://lorempixel.com/200/200/technics', 100, true),
-(12, 'Moto', 'Elle a 2 roues et un guidon', 'Vehicule', 'http://lorempixel.com/200/200/transport', 2999.99, true),
-(13, 'Chat', 'Très affectueux', 'Animaux de compagnie', 'http://lorempixel.com/200/200/cats', 9.99, true),
-(14, 'Kebab', 'Viande de qualité, frites de qualité', 'Alimentation', 'http://lorempixel.com/200/200/food', 9.99, true),
-(15, 'Batte de baseball', 'A peu servi', 'Sports', 'http://lorempixel.com/200/200/sports', 99.99, true);
+(6, 'Truc High-Tech', 'Il sert à rien mais il est cool', 'High-Tech', 'http://lorempixel.com/200/200/technics/1', 100, true),
+(7, 'Moto', 'Elle a 2 roues et un guidon', 'Vehicule', 'http://lorempixel.com/200/200/transport/1', 2999.99, true),
+(8, 'Chat', 'Très affectueux', 'Animaux de compagnie', 'http://lorempixel.com/200/200/cats/1', 9.99, true),
+(9, 'Kebab', 'Viande de qualité, frites de qualité', 'Alimentation', 'http://lorempixel.com/200/200/food/1', 9.99, true),
+(10, 'Batte de baseball', 'A peu servi', 'Sports', 'http://lorempixel.com/200/200/sports/1', 99.99, true),
+(11, 'Truc High-Tech', 'Il sert à rien mais il est cool', 'High-Tech', 'http://lorempixel.com/200/200/technics/2', 100, true),
+(12, 'Moto', 'Elle a 2 roues et un guidon', 'Vehicule', 'http://lorempixel.com/200/200/transport/2', 2999.99, true),
+(13, 'Chat', 'Très affectueux', 'Animaux de compagnie', 'http://lorempixel.com/200/200/cats/2', 9.99, true),
+(14, 'Kebab', 'Viande de qualité, frites de qualité', 'Alimentation', 'http://lorempixel.com/200/200/food/2', 9.99, true),
+(15, 'Batte de baseball', 'A peu servi', 'Sports', 'http://lorempixel.com/200/200/sports/2', 99.99, true),
+(16, 'Chat Psychedelique, 'Très agressif pout les yeux', 'Animaux de compagnie', 'http://i2.wp.com/h16free.com/wp-content/uploads/2015/05/psychedelic-cat.gif', 9999.99, true);
 
 -- --------------------------------------------------------
 
@@ -291,7 +292,8 @@ INSERT INTO `personne` (`id`, `actif`, `nom`, `prenom`, `login`, `password`, `TY
 (17, true, 'USER9', 'User9', 'loginUser9', 'pwdUser9', 'U'),
 (18, true, 'USER10', 'User10', 'loginUser10', 'pwdUser10', 'U'),
 (19, true, 'USER11', 'User11', 'loginUser11', 'pwdUser11', 'U'),
-(20, true, 'USER12', 'User12', 'loginUser12', 'pwdUser12', 'U');
+(20, true, 'USER12', 'User12', 'loginUser12', 'pwdUser12', 'U'),
+(21, true, 'aaa', 'bbb', 'aaa@yopmail.com', 'c1c2c3', 'U);'
 
 -- --------------------------------------------------------
 
