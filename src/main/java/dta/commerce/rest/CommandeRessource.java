@@ -30,7 +30,7 @@ public class CommandeRessource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response updateCommande(CommandeClient cmdClient) {
 		commandeEjb.updateCommandeClient(cmdClient);
-		return Response.status(Response.Status.OK).build();
+		return Response.ok(cmdClient).build();
 	}
 
 	@GET
