@@ -158,7 +158,7 @@ public class UserRessource {
 				
 			System.out.println("création de la commande");
 			commandeClient.setClient(myEJB.getUser(idClient));
-			commmandeEjb.updateCommandeClient(commandeClient);
+			commmandeEjb.createCommandeClient(commandeClient);
 			email.envoiEmailSmtp(commandeClient);
 			return Response.status(Response.Status.CREATED).entity(commandeClient).build();
 		}

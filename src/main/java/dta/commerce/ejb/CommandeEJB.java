@@ -21,7 +21,6 @@ public class CommandeEJB implements ICommandeEJB{
 	@Override
 	public  void createCommandeClient(CommandeClient commandeClient) {
 		commandeDao.createCommandeClient(commandeClient);
-		commandeClient.getClient().addCommandClient(commandeClient); 
 	}
 
 	@Override
