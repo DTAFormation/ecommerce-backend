@@ -219,7 +219,7 @@ CREATE TABLE IF NOT EXISTS `facture` (
 -- Contenu de la table `facture`
 --
 
-INSERT INTO `facture` (`id`, `date`, `modepaiement`, `adresselivraison`, `adressefacturation`, `commande_client`) VALUES
+INSERT INTO `facture` (`id`, `date`, `modepaiement`, `montant`, `adresselivraison`, `adressefacturation`, `commande_client`) VALUES
 (1, '2015-01-01', 'Par CB',0, 1, 21, 1),
 (2, '2015-01-01', 'Par CB',0, 2, 2, 2),
 (3, '2015-01-01', 'Par CB',0, 3, 3, 3),
