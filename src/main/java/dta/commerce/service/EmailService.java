@@ -133,5 +133,50 @@ public class EmailService implements IEmailService {
 		}
 
 	}
+	
+	public void envoiEmailSAV(String objectMail,String Msg,String emailExpediteur){
+		
+		String destinataire ="testformationdtaaout2015@gmail.com";
+		
+		String content = "Expéditeur : " + emailExpediteur + "\n"
+				+ "Contenu du message expédié : \n"
+				+ Msg;
+		
+		try {
+			// chargement des propriétés
+			String homeDir = System.getProperty("user.home");
+			Properties prop = load(homeDir
+					+ "/dtaformation/smtp-conf.properties");
+
+			// Affichage des propriétés
+			// Récupère la propriété login/mdp
+
+			String login = prop.getProperty("login");
+			String pwd = prop.getProperty("password");
+			
+			System.out.println(login + " - " + pwd);
+
+			// instanciation des email
+			Email email = new SimpleEmail();
+			// host name googlemail.com
+			email.setHostName("smtp.googlemail.com");
+			// port gmail
+			email.setSmtpPort(465);
+			// login mdp du mail d'envoi
+			email.setAuthenticator(new DefaultAuthenticator(login, pwd));
+			email.setSSLOnConnect(true);
+			// email de destination
+			email.setFrom("test@yopmail.com");
+			// titre du mail
+			email.setSubject(objectMail);
+			email.setMsg(content);
+			email.addTo(destinataire);
+			// email.setBounceAddress("bounce@yopmail.com");
+			email.send();
+		} catch (EmailException | IOException e) {
+			System.err.println("erreur sur l'email");
+			e.printStackTrace();
+		}
+	}
 
 }
