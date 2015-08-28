@@ -17,6 +17,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.ResponseBuilder;
 
 import dta.commerce.ejb.ICommandeEJB;
+import dta.commerce.ejb.IProduitEJB;
 import dta.commerce.ejb.IUserEJB;
 import dta.commerce.persistance.Adresse;
 import dta.commerce.persistance.CommandeClient;
@@ -28,6 +29,7 @@ public class UserRessource {
 	@EJB IUserEJB myEJB;
 	@EJB ICommandeEJB commmandeEjb;
 	@EJB IEmailService email;
+	@EJB IProduitEJB produitEjb;
 	
 	// ****** AJOUTER USER ******
 	@POST
@@ -162,6 +164,7 @@ public class UserRessource {
 			
 			commandeClient.getCommandeProduits().stream().forEach(commandeProduit -> {
 				commandeProduit.setCommandeClient(commandeClient);
+				commandeProduit.setProduit(produitEjb.getProduit(commandeProduit.getProduit().getId()));
 			});
 			
 			commmandeEjb.createCommandeClient(commandeClient);
