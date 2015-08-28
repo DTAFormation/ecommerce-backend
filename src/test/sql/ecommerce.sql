@@ -206,6 +206,7 @@ CREATE TABLE IF NOT EXISTS `facture` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `date` datetime DEFAULT NULL,
   `modepaiement` varchar(255) DEFAULT NULL,
+  `montant` float (11) DEFAULT NULL,
   `adressefacturation` int(11) DEFAULT NULL,
   `adresselivraison` int(11) DEFAULT NULL,
   `commande_client` int(11) DEFAULT NULL,
@@ -219,22 +220,22 @@ CREATE TABLE IF NOT EXISTS `facture` (
 -- Contenu de la table `facture`
 --
 
-INSERT INTO `facture` (`id`, `date`, `modepaiement`, `adresselivraison`, `adressefacturation`, `commande_client`) VALUES
-(1, '2015-01-01', 'Par CB', 1, 21, 1),
-(2, '2015-01-01', 'Par CB', 2, 2, 2),
-(3, '2015-01-01', 'Par CB', 3, 3, 3),
-(4, '2015-05-01', 'Par CB', 3, 3, 4),
-(5, '2015-03-01', 'Par CB', 4, 4, 5),
-(6, '2015-04-01', 'Par CB', 9, 9, 6),
-(7, '2015-06-01', 'Par CB', 7, 7, 7),
-(8, '2015-08-01', 'Par CB', 7, 7, 8),
-(9, '2015-02-01', 'Par CB', 9, 9, 9),
-(10, '2015-02-01', 'Par CB', 11, 11, 10),
-(11, '2015-06-01', 'Par CB', 3, 3, 11),
-(12, '2015-07-01', 'Par CB', 13, 13, 12),
-(13, '2015-07-01', 'Par CB', 8, 8, 13),
-(14, '2015-04-01', 'Par CB', 8, 8, 14),
-(15, '2015-08-01', 'Par CB', 15, 24, 15);
+INSERT INTO `facture` (`id`, `date`, `modepaiement`, `montant`, `adresselivraison`, `adressefacturation`, `commande_client`) VALUES
+(1, '2015-01-01', 'Par CB',0, 1, 21, 1),
+(2, '2015-01-01', 'Par CB',0, 2, 2, 2),
+(3, '2015-01-01', 'Par CB',0, 3, 3, 3),
+(4, '2015-05-01', 'Par CB',0, 3, 3, 4),
+(5, '2015-03-01', 'Par CB',0, 4, 4, 5),
+(6, '2015-04-01', 'Par CB',0, 9, 9, 6),
+(7, '2015-06-01', 'Par CB',0, 7, 7, 7),
+(8, '2015-08-01', 'Par CB',0, 7, 7, 8),
+(9, '2015-02-01', 'Par CB',0, 9, 9, 9),
+(10, '2015-02-01', 'Par CB',0, 11, 11, 10),
+(11, '2015-06-01', 'Par CB',0, 3, 3, 11),
+(12, '2015-07-01', 'Par CB',0, 13, 13, 12),
+(13, '2015-07-01', 'Par CB',0, 8, 8, 13),
+(14, '2015-04-01', 'Par CB',0, 8, 8, 14),
+(15, '2015-08-01', 'Par CB',0, 15, 24, 15);
 
 -- --------------------------------------------------------
 

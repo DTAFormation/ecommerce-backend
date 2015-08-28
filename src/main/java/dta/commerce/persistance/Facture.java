@@ -26,6 +26,8 @@ public class Facture {
 	
 	private String modepaiement;
 	
+	private Double montant = 0.0d;
+	
 	@OneToOne
 	@JsonIgnore
 	private Adresse adresselivraison;
@@ -37,7 +39,7 @@ public class Facture {
 	/**
 	 * Constructeurs
 	 */
-	public Facture(Date date, String modepaiement,
+	public Facture(Date date, String modepaiement, Double montant,
 			Adresse adresseLivraison, Adresse adresseFacturation,
 			CommandeClient commandeClient) {
 		super();
@@ -45,12 +47,12 @@ public class Facture {
 		this.modepaiement = modepaiement;
 		this.adresselivraison = adresseLivraison;
 		this.adressefacturation = adresseFacturation;
+		this.montant = montant;
 	}
 	public Facture(){
 		
 	}
-	
-	
+		
 	/**
 	 * Getters & setters
 	 */
@@ -83,6 +85,13 @@ public class Facture {
 	}
 	public void setAdresseFacturation(Adresse adresseFacturation) {
 		this.adressefacturation = adresseFacturation;
+	}
+	public Double getMontant() {
+		return montant;
+	}
+	public void setMontant(Double montant) {
+		if (montant >=0)
+		this.montant = montant;
 	}
 
 }
