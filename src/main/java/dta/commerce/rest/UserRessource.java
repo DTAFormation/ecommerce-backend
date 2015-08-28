@@ -160,6 +160,10 @@ public class UserRessource {
 			// Commande en cours à la création
 			commandeClient.setEtat("EC");
 			
+			commandeClient.getCommandeProduits().stream().forEach(commandeProduit -> {
+				commandeProduit.setCommandeClient(commandeClient);
+			});
+			
 			commmandeEjb.createCommandeClient(commandeClient);
 			email.envoiEmailSmtp(commandeClient);
 			return Response.status(Response.Status.CREATED).entity(commandeClient).build();
