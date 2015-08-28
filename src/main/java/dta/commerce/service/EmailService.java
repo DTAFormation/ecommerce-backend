@@ -32,7 +32,7 @@ public class EmailService implements IEmailService {
 	 * 
 	 */
 	public EmailService() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 	/**

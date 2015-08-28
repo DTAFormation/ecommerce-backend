@@ -165,6 +165,7 @@ public class UserRessource {
 			});
 			
 			commmandeEjb.createCommandeClient(commandeClient);
+			//envoi d'un email à l'adresse enregistré dans login
 			email.envoiEmailSmtp(commandeClient);
 			return Response.status(Response.Status.CREATED).entity(commandeClient).build();
 		}

@@ -75,7 +75,8 @@ INSERT INTO `adresse` (`id`, `numero`, `rue`, `ville`, `client`) VALUES
 (21, 17, 'rue des cerisiers', 'Nantes', 1),
 (22, 17, 'rue des cerisiers', 'Nantes', 5),
 (23, 17, 'rue des cerisiers', 'Nantes', 10),
-(24, 17, 'rue des cerisiers', 'Nantes', 15);
+(24, 17, 'rue des cerisiers', 'Nantes', 15),
+(25, 666, 'rue du diable', 'Enfer', 21);
 
 -- --------------------------------------------------------
 
